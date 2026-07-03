@@ -207,6 +207,101 @@
   /* Photo slot */
   .photo-slot { background: var(--cream); border: 1.5px dashed var(--border); border-radius: 12px; height: 180px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 13px; font-style: italic; margin: 16px 0; }
 
+  /* ── "Ваш вкус" — переиспользуемый блок для субъективных решений ── */
+  .taste-block {
+    background: var(--rose-l);
+    border: 1px dashed var(--rose);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin: 18px 0;
+  }
+  .taste-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--rose);
+    background: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .taste-label::before { content: '✦'; font-size: 11px; }
+  .taste-text {
+    font-size: 14px;
+    color: var(--choco);
+    line-height: 1.75;
+  }
+  .taste-block .photo-slot {
+    margin: 14px 0 4px;
+    background: white;
+    border-color: var(--rose);
+  }
+
+  /* ── Оглавление / быстрая навигация ── */
+  .toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 26px;
+    margin: 24px 0 36px;
+  }
+  .toc-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px;
+  }
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 13px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    transition: all .15s;
+  }
+  .toc-item:hover {
+    background: var(--sky-pale);
+    border-color: var(--sky);
+  }
+  .toc-num {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--sky);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .back-to-toc {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #2A6080;
+    text-decoration: none;
+    margin: 8px 0 0;
+  }
+  .back-to-toc:hover { text-decoration: underline; }
+
   /* Warm */
   .warm { background: var(--rose-l); border: 1px solid #DDB8B5; border-radius: 12px; padding: 14px 20px; font-size: 14px; color: var(--choco); margin: 20px 0; line-height: 1.7; }
   .warm b { font-weight: 600; }
@@ -214,14 +309,26 @@
   /* Quote */
   .quote {
     background: var(--cream);
-    border-left: 4px solid var(--rose);
-    border-radius: 0 10px 10px 0;
-    padding: 18px 24px;
-    margin: 24px 0;
-    font-size: 15px;
-    color: var(--choco);
+    border-radius: 20px;
+    padding: 30px 34px;
+    margin: 28px 0;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    color: var(--choco-l);
     font-style: italic;
-    line-height: 1.75;
+    line-height: 1.85;
+    text-align: center;
+    position: relative;
+  }
+  .quote::before {
+    content: '❝';
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 34px;
+    color: var(--rose);
+    opacity: .5;
+    margin-bottom: 4px;
+    font-style: normal;
   }
 
   /* Final */
@@ -523,7 +630,7 @@
     <div class="material-item">
       <div class="m-head">
         <div class="m-name">Синтепух handiwork (2 кг)</div>
-        <span class="material-tag tag-required">Обязательно</span>
+        <span class="material-tag tag-optional">По желанию</span>
       </div>
       <a href="https://www.wildberries.ru/catalog/234607376/detail.aspx?size=369706937" target="_blank">Купить на Wildberries</a>
     </div>
@@ -614,8 +721,26 @@
 
     <div class="divider"></div>
 
+    <!-- ═══ ОГЛАВЛЕНИЕ ═══ -->
+    <div class="toc" id="toc">
+      <div class="toc-title">Быстрый переход по этапам</div>
+      <div class="toc-grid">
+        <a class="toc-item" href="#stage-1"><span class="toc-num">1</span>Раскрой</a>
+        <a class="toc-item" href="#stage-2"><span class="toc-num">2</span>Сшивание</a>
+        <a class="toc-item" href="#stage-3"><span class="toc-num">3</span>Выворачивание</a>
+        <a class="toc-item" href="#stage-4"><span class="toc-num">4</span>Голова и глазки</a>
+        <a class="toc-item" href="#stage-5"><span class="toc-num">5</span>Взгляд</a>
+        <a class="toc-item" href="#stage-6"><span class="toc-num">6</span>Лицо</a>
+        <a class="toc-item" href="#stage-7"><span class="toc-num">7</span>Наполнение лапок</a>
+        <a class="toc-item" href="#stage-8"><span class="toc-num">8</span>Ножки в туловище</a>
+        <a class="toc-item" href="#stage-9"><span class="toc-num">9</span>Наполнение туловища</a>
+        <a class="toc-item" href="#stage-10"><span class="toc-num">10</span>Пришиваем ручки</a>
+        <a class="toc-item" href="#stage-11"><span class="toc-num">11</span>Пришиваем голову</a>
+      </div>
+    </div>
+
     <!-- ═══ ЭТАП 1 — РАСКРОЙ ═══ -->
-    <div class="stage">
+    <div class="stage" id="stage-1">
       <span class="stage-num">Этап 1</span>
       <div class="stage-titles">
         <h2>Раскрой</h2>
@@ -632,8 +757,10 @@
 
     <div class="photo-slot">📷 фото раскроя</div>
 
+    <a class="back-to-toc" href="#toc">↑ К содержанию</a>
+
     <!-- ═══ ЭТАП 2 — СШИВАНИЕ ═══ -->
-    <div class="stage">
+    <div class="stage" id="stage-2">
       <span class="stage-num">Этап 2</span>
       <div class="stage-titles">
         <h2>Сшивание</h2>
@@ -657,8 +784,10 @@
       <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: ручной шов «назад иголку» — <a href="#">смотреть</a></div></div>
     </div>
 
+    <a class="back-to-toc" href="#toc">↑ К содержанию</a>
+
     <!-- ═══ ЭТАП 3 — ВЫВОРАЧИВАНИЕ ═══ -->
-    <div class="stage">
+    <div class="stage" id="stage-3">
       <span class="stage-num">Этап 3</span>
       <div class="stage-titles">
         <h2>Выворачивание</h2>
@@ -673,17 +802,19 @@
 
     <div class="warm"><b>Кстати, как вы?</b> Всё получается? Если на каком-то этапе что-то пошло не так — не переживайте, это нормально. Напишите мне, разберёмся вместе 🤍</div>
 
-    <!-- ═══ ЭТАП 4 — НАБИВКА ═══ -->
-    <div class="stage">
+    <a class="back-to-toc" href="#toc">↑ К содержанию</a>
+
+    <!-- ═══ ЭТАП 4 — ГОЛОВА И ГЛАЗКИ ═══ -->
+    <div class="stage" id="stage-4">
       <span class="stage-num">Этап 4</span>
       <div class="stage-titles">
-        <h2>Набивка</h2>
+        <h2>Голова и глазки</h2>
         <div class="tagline">Малыш приобретает форму и объём — и уже становится похожим на вашего</div>
       </div>
     </div>
 
     <p>Вот он — момент когда мишка начинает обретать вес вашего малыша. Не торопитесь здесь, этот этап требует внимания и чуть больше времени. Я бы рекомендовала выделить на это не меньше часа. Если его нет — можно вернуться позже.</p>
-    <p>Все расчёты ниже составлены специально под <span class="hl-name" id="out-name-1">вашего малыша</span> — просто следуйте таблице и тексту.</p>
+    <p>Все расчёты ниже составлены специально под <span class="hl-name" id="out-name-1">вашего малыша</span> — просто следуйте таблице и тексту. Гранулят распределяется по деталям не поровну, у каждой своя норма — далее по ходу МК вы увидите точные цифры для каждой части.</p>
 
     <div class="pers-table">
       <div class="pers-table-head">
@@ -702,20 +833,6 @@
     <div class="note"><b>Важно:</b> добавляйте в туловище на 30–50 г меньше нужного — остальное добавят синтепух и нитки при финальном зашивании.</div>
 
     <div class="sub-section">
-      <h3>Ручки <span class="count">2 шт.</span></h3>
-      <p>Начните с небольшого количества синтепуха — заполните самый кончик, чтобы он не остался пустым.</p>
-      <p>Затем добавьте <span class="hl" id="out-arm-half1">—</span> гранулята, сверху снова слой синтепуха и хорошо утрамбуйте. Досыпьте ещё <span class="hl" id="out-arm-half2">—</span> — итого <span class="hl" id="out-arm-total">—</span> на каждую ручку.</p>
-      <p>Завершите синтепухом, оставив около 1 см свободным от края. Закройте отверстие машинной строчкой или потайным швом вручную. Повторите для второй ручки.</p>
-    </div>
-
-    <div class="sub-section">
-      <h3>Ножки <span class="count">2 шт.</span></h3>
-      <p>Начните со ступни — плотно набейте синтепухом самую нижнюю часть, хорошо трамбуйте чтобы ножка держала форму.</p>
-      <p>Добавьте <span class="hl" id="out-leg-half1">—</span> гранулята, затем снова синтепух и ещё <span class="hl" id="out-leg-half2">—</span> — итого <span class="hl" id="out-leg-total">—</span> на каждую ножку.</p>
-      <p>Завершите синтепухом, оставив 2–4 см до края. Зашейте отверстие и повторите для второй ножки.</p>
-    </div>
-
-    <div class="sub-section">
       <h3>Глазки <span class="count">ставятся до набивки головы</span></h3>
       <p>Прежде чем набивать голову — установите глазки, пока она ещё пустая, так будет значительно удобнее.</p>
       <p>Положите голову на стол и определите места для глазок — симметрично. Шилом аккуратно проткните насквозь обе толщи ткани. Вставьте пластиковые глазки на безопасном креплении и с обратной стороны плотно зафиксируйте колпачком. Убедитесь что глазки сидят ровно и симметрично — потом исправить уже не получится.</p>
@@ -731,11 +848,13 @@
       <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: набивка и моделирование головы — <a href="#">смотреть</a></div></div>
     </div>
 
-    <!-- ═══ ЭТАП 5 — УТЯЖКА ═══ -->
-    <div class="stage">
+    <a class="back-to-toc" href="#toc">↑ К содержанию</a>
+
+    <!-- ═══ ЭТАП 5 — ВЗГЛЯД ═══ -->
+    <div class="stage" id="stage-5">
       <span class="stage-num">Этап 5</span>
       <div class="stage-titles">
-        <h2>Утяжка глаз, бровки и моделирование головы</h2>
+        <h2>Взгляд</h2>
         <div class="tagline">Именно здесь рождается тот самый взгляд</div>
       </div>
     </div>
@@ -753,8 +872,12 @@
 
     <div class="blue-section">
       <h3>Бровки</h3>
-      <p>Сразу после утяжки, не убирая натяжения, формируем бровки. На схеме ниже выберите форму которая откликается вам. Можно заранее наметить бровки исчезающим маркером — так будет проще вышить ровно.</p>
-      <div class="photo-slot">📷 схема вариантов бровок</div>
+      <p>Сразу после утяжки, не убирая натяжения, формируем бровки. Можно заранее наметить бровки исчезающим маркером — так будет проще вышить ровно.</p>
+      <div class="taste-block">
+        <div class="taste-label">Ваш вкус</div>
+        <div class="taste-text">Форма бровок — только ваш выбор. Домиком, дугой, ближе к глазам или пошире — каждый вариант меняет взгляд мишки по-своему: где-то он выйдет задумчивым, где-то радостным. Ниже — примеры для вдохновения, но правильный ответ один: тот, что откликается именно вам.</div>
+        <div class="photo-slot">📷 схема вариантов бровок</div>
+      </div>
       <p>Выведите нить в начало первой бровки и проложите один стежок, выводя иглу сразу у начала второй. Не затягивайте сильно — бровки должны лежать мягко, но и не свободно. Иглой можно слегка взъерошить ткань под нитью — так она немного утонет и взгляд получится более живым. Проложите вторую бровку так же и сразу выведите нить через затылок, сделайте стежок и закрепите узелком.</p>
     </div>
 
@@ -773,41 +896,77 @@
 
     <div class="warm"><b>Как вы?</b> Выдыхайте — самый объёмный этап позади. Мишка уже начинает напоминать того самого малыша?</div>
 
-    <!-- ═══ ЭТАП 6 — НОСИК ═══ -->
-    <div class="stage">
+    <a class="back-to-toc" href="#toc">↑ К содержанию</a>
+
+    <!-- ═══ ЭТАП 6 — ЛИЦО ═══ -->
+    <div class="stage" id="stage-6">
       <span class="stage-num">Этап 6</span>
       <div class="stage-titles">
-        <h2>Вышивка носика</h2>
+        <h2>Лицо</h2>
         <div class="tagline">Характер. Именно сейчас мишка начинает обретать своё лицо</div>
       </div>
     </div>
 
     <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: вышивка носика — <a href="#">смотреть</a></div></div>
 
-    <p>Возьмите прочную чёрную или тёмно-коричневую нить — ирис в два сложения. Найдите центр мордочки и наметьте треугольник чуть ниже: ширина около 2 см, высота 1,5 см. Можно слегка обозначить контур исчезающим маркером — так будет проще вышивать ровно.</p>
-    <p>Заполняйте треугольник параллельными стежками — как гладь, плотно и аккуратно. Каждый стежок кладите рядом с предыдущим, следите чтобы нить натягивалась равномерно и не перекашивала мордочку. Спешить здесь не нужно — носик маленький, но именно он даёт мишке выражение.</p>
-    <p>Когда закончите — закрепите нить узелком и спрячьте кончик внутрь головы через ближайший шов.</p>
+    <div class="sub-section">
+      <h3>Носик</h3>
+      <p>Возьмите прочную чёрную или тёмно-коричневую нить — ирис в два сложения. Найдите центр мордочки и наметьте треугольник чуть ниже: ширина около 2 см, высота 1,5 см. Можно слегка обозначить контур исчезающим маркером — так будет проще вышивать ровно.</p>
+      <p>Заполняйте треугольник параллельными стежками — как гладь, плотно и аккуратно. Каждый стежок кладите рядом с предыдущим, следите чтобы нить натягивалась равномерно и не перекашивала мордочку. Спешить здесь не нужно — носик маленький, но именно он даёт мишке выражение.</p>
 
-    <div class="photo-slot">📷 схема вариантов носика</div>
+      <div class="taste-block">
+        <div class="taste-label">Ваш вкус</div>
+        <div class="taste-text">Форма и размер носика — тоже только ваш выбор. Чуть крупнее или миниатюрнее, шире или уже — каждый вариант меняет мордочку по-своему, делает её то серьёзнее, то трогательнее. Ниже — примеры для вдохновения, но правильный ответ здесь только один: тот, что откликается именно вам.</div>
+        <div class="photo-slot">📷 схема вариантов носика</div>
+      </div>
 
-    <p style="font-style:italic;color:var(--rose);">Посмотрите на мордочку. Он уже смотрит на вас, правда?</p>
+      <p>Когда закончите — закрепите нить узелком и спрячьте кончик внутрь головы через ближайший шов.</p>
+      <p style="font-style:italic;color:var(--rose);">Посмотрите на мордочку. Он уже смотрит на вас, правда?</p>
+    </div>
 
-    <!-- ═══ ЭТАП 7 — УШКИ ═══ -->
-    <div class="stage">
+    <div class="sub-section">
+      <h3>Ушки</h3>
+      <p>Возьмите готовые ушки и закройте открытый край ручным швом — слегка стягивая по мере шитья, чтобы ушко приобрело изогнутую, живую форму.</p>
+
+      <div class="taste-block">
+        <div class="taste-label">Ваш вкус</div>
+        <div class="taste-text">Место для ушек на голове — тоже только ваш выбор. Приложите ушки, посмотрите — и доверьтесь себе. Выше или ниже, шире или уже, с наклоном вперёд или назад — каждый вариант меняет мордочку по-своему. Ниже — примеры для вдохновения, но правильный ответ здесь только один: тот, что откликается именно вам.</div>
+        <div class="photo-slot">📷 варианты расположения ушек</div>
+      </div>
+
+      <p>Пришейте ушки ручным швом капроновой нитью по кругу, пройдитесь дважды для надёжности. Закрепите нить узелком, выведите иглу чуть в стороне и спрячьте кончик внутри.</p>
+      <div class="photo-slot">📷 фото пришитых ушек</div>
+    </div>
+
+    <a class="back-to-toc" href="#toc">↑ К содержанию</a>
+
+    <!-- ═══ ЭТАП 7 — НАПОЛНЕНИЕ ЛАПОК ═══ -->
+    <div class="stage" id="stage-7">
       <span class="stage-num">Этап 7</span>
       <div class="stage-titles">
-        <h2>Ушки</h2>
-        <div class="tagline">Детали, которые делают его собой</div>
+        <h2>Наполнение лапок</h2>
+        <div class="tagline">Ручки и ножки обретают тот же вес, что и всё остальное тело</div>
       </div>
     </div>
 
-    <p>Возьмите готовые ушки и закройте открытый край ручным швом — слегка стягивая по мере шитья, чтобы ушко приобрело изогнутую, живую форму.</p>
-    <p>Теперь найдите место на голове. Приложите ушки, посмотрите — и доверьтесь себе. У каждого своё видение, и это правильно. Пришейте ушки ручным швом капроновой нитью по кругу, пройдитесь дважды для надёжности. Закрепите нить узелком, выведите иглу чуть в стороне и спрячьте кончик внутри.</p>
+    <div class="sub-section">
+      <h3>Ручки <span class="count">2 шт.</span></h3>
+      <p>Начните с небольшого количества синтепуха — заполните самый кончик, чтобы он не остался пустым.</p>
+      <p>Затем добавьте <span class="hl" id="out-arm-half1">—</span> гранулята, сверху снова слой синтепуха и хорошо утрамбуйте. Досыпьте ещё <span class="hl" id="out-arm-half2">—</span> — итого <span class="hl" id="out-arm-total">—</span> на каждую ручку.</p>
+      <p>Завершите синтепухом, оставив около 1 см свободным от края. Закройте отверстие машинной строчкой или потайным швом вручную. Повторите для второй ручки.</p>
+    </div>
 
-    <div class="photo-slot">📷 фото пришитых ушек</div>
+    <div class="sub-section">
+      <h3>Ножки <span class="count">2 шт.</span></h3>
+      <p>Начните со ступни — плотно набейте синтепухом самую нижнюю часть, хорошо трамбуйте чтобы ножка держала форму.</p>
+      <p>Добавьте <span class="hl" id="out-leg-half1">—</span> гранулята, затем снова синтепух и ещё <span class="hl" id="out-leg-half2">—</span> — итого <span class="hl" id="out-leg-total">—</span> на каждую ножку.</p>
+      <p>Завершите синтепухом, оставив 2–4 см до края. Зашейте отверстие и повторите для второй ножки.</p>
+    </div>
+
+    <a class="back-to-toc" href="#toc">↑ К содержанию</a>
 
     <!-- ═══ ЭТАП 8 — НОЖКИ В ТУЛОВИЩЕ ═══ -->
-    <div class="stage">
+    <div class="stage" id="stage-8">
       <span class="stage-num">Этап 8</span>
       <div class="stage-titles">
         <h2>Вшиваем ножки в туловище</h2>
@@ -821,8 +980,10 @@
 
     <p style="font-style:italic;color:var(--rose);">Ловите, а то убежит!</p>
 
+    <a class="back-to-toc" href="#toc">↑ К содержанию</a>
+
     <!-- ═══ ЭТАП 9 — НАПОЛНЕНИЕ ТУЛОВИЩА ═══ -->
-    <div class="stage">
+    <div class="stage" id="stage-9">
       <span class="stage-num">Этап 9</span>
       <div class="stage-titles">
         <h2>Наполнение туловища</h2>
@@ -837,8 +998,10 @@
 
     <div class="quote">Каждый ребёнок индивидуален, и тело мамы девять месяцев формировало именно его. Так и здесь — вы подгоняете мишку под своего малыша, как когда-то ваш живот подстраивался под него.</div>
 
+    <a class="back-to-toc" href="#toc">↑ К содержанию</a>
+
     <!-- ═══ ЭТАП 10 — РУЧКИ ═══ -->
-    <div class="stage">
+    <div class="stage" id="stage-10">
       <span class="stage-num">Этап 10</span>
       <div class="stage-titles">
         <h2>Пришиваем ручки</h2>
@@ -849,8 +1012,10 @@
     <p>Найдите боковые швы туловища — они станут ориентиром. Шов должен приходиться ровно на середину ручки. Пришейте ручки по обе стороны к верхнему краю туловища, слегка стягивая горловину — но не сильно, голова должна сесть красиво.</p>
     <p>После этого ещё раз проверьте рост мишки — всё ли совпадает с задуманным.</p>
 
+    <a class="back-to-toc" href="#toc">↑ К содержанию</a>
+
     <!-- ═══ ЭТАП 11 — ГОЛОВА ═══ -->
-    <div class="stage">
+    <div class="stage" id="stage-11">
       <span class="stage-num">Этап 11</span>
       <div class="stage-titles">
         <h2>Пришиваем голову</h2>
@@ -859,6 +1024,8 @@
     </div>
 
     <p>Используйте плотную капроновую нить или сложите обычную в 4–6 слоёв. Начинайте с затылка, от центра, и двигайтесь по кругу — очень плотно стягивая голову и туловище между собой. Пройдитесь 2–3 полных круга, периодически закрепляя нить узелками по ходу. Когда голова надёжно зафиксирована — спрячьте нить внутри.</p>
+
+    <a class="back-to-toc" href="#toc">↑ К содержанию</a>
 
     <!-- ═══ ФИНАЛ ═══ -->
     <div class="final-block">
@@ -953,11 +1120,13 @@ function generate() {
     const bd = new Date(birth);
     const now = new Date();
     const ageText = calcAge(bd, now);
-    document.getElementById('greet-line-1').innerHTML = 'Тебе уже <span class="em">' + ageText + '</span>, милый ' + name + ',';
+    const miliy = (userGender === 'girl') ? 'милая' : 'милый';
+    document.getElementById('greet-line-1').innerHTML = 'Тебе уже <span class="em">' + ageText + '</span>, ' + miliy + ' ' + name + ',';
     document.getElementById('greet-line-2').textContent = 'но сегодня мы отправимся в путешествие твоего рождения.';
     greetEl.style.display = 'block';
   } else {
-    document.getElementById('greet-line-1').innerHTML = 'Милый <span class="em">' + name + '</span>,';
+    const miliy2 = (userGender === 'girl') ? 'Милая' : 'Милый';
+    document.getElementById('greet-line-1').innerHTML = miliy2 + ' <span class="em">' + name + '</span>,';
     document.getElementById('greet-line-2').textContent = 'сегодня мы отправимся в путешествие твоего рождения.';
     greetEl.style.display = 'block';
   }
