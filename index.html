@@ -1081,6 +1081,7 @@ function pickGender(btn) {
 }
 
 function round25(n) { return Math.round(n / 25) * 25; }
+function round50(n) { return Math.round(n / 50) * 50; }
 
 function calcAmounts(weight, height) {
   let patternSize, patternLabel;
@@ -1089,8 +1090,10 @@ function calcAmounts(weight, height) {
   else                   { patternSize = 'L'; patternLabel = 'Выкройка L'; }
 
   const head = round25(weight * 0.14);
-  const arm  = round25(weight * 0.075);
-  const leg  = round25(weight * 0.075);
+  // Вес конечности округляем до кратного 50 — чтобы он делился ровно
+  // пополам и обе доли набивки были равными (50/50).
+  const arm  = round50(weight * 0.075);
+  const leg  = round50(weight * 0.075);
 
   const limbsTotal = head + arm * 2 + leg * 2;
   const body = Math.max(50, weight - limbsTotal);
@@ -1140,8 +1143,9 @@ function generate() {
   }
 
   const c = calcAmounts(weight, height);
-  const armHalf = round25(c.arm / 2);
-  const legHalf = round25(c.leg / 2);
+  // Вес конечности кратен 50, поэтому делится ровно пополам — обе доли равны.
+  const armHalf = c.arm / 2;
+  const legHalf = c.leg / 2;
 
   // Badge
   document.getElementById('out-badge-name').textContent = name;
