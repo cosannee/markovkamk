@@ -205,7 +205,7 @@
   .blue-section p { font-size: 14px; color: var(--text); line-height: 1.78; margin-top: 8px; }
 
   /* Photo slot */
-  .photo-slot { background: var(--cream); border: 1.5px dashed var(--border); border-radius: 12px; height: 180px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 13px; font-style: italic; margin: 16px 0; }
+  .photo-slot { background: var(--cream); border: 1.5px dashed var(--border); border-radius: 12px; width: 100%; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 13px; font-style: italic; margin: 16px 0; overflow: hidden; }
 
   /* ── "Ваш вкус" — переиспользуемый блок для субъективных решений ── */
   .taste-block {
@@ -505,7 +505,7 @@
     #mk { display: block !important; }
     .btn-print, .btn-main { display: none; }
     .mk-wrap { padding: 20px; }
-    .photo-slot { height: 140px; }
+    .photo-slot { aspect-ratio: 16/9; height: auto; }
   }
 </style>
 </head>
