@@ -514,8 +514,86 @@
     .photo-slot { aspect-ratio: 16/9; height: auto; }
   }
 </style>
+<style>
+  /* ═══ ПАРОЛЬ ═══ */
+  #pw-gate {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Golos Text', Georgia, sans-serif;
+  }
+  .pw-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 52px 48px;
+    max-width: 480px; width: 90%;
+    box-shadow: 0 4px 32px rgba(62,41,35,.07);
+  }
+  .pw-logo {
+    font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 8px; font-weight: 500;
+  }
+  .pw-title {
+    font-size: 26px; font-weight: 600; color: var(--choco);
+    margin-bottom: 8px; line-height: 1.25;
+  }
+  .pw-sub {
+    font-size: 14px; color: var(--muted);
+    margin-bottom: 28px; line-height: 1.6;
+  }
+  .pw-input {
+    width: 100%; background: var(--bg); border: 1.5px solid var(--border);
+    border-radius: 10px; padding: 12px 16px; font-size: 16px;
+    font-family: 'Golos Text', sans-serif; color: var(--text);
+    outline: none; margin-bottom: 12px; transition: border-color .2s;
+  }
+  .pw-input:focus { border-color: var(--sky); }
+  .pw-btn {
+    width: 100%; background: var(--choco); color: white;
+    border: none; border-radius: 12px; padding: 15px;
+    font-size: 15px; font-weight: 600; font-family: 'Golos Text', sans-serif;
+    cursor: pointer; margin-top: 8px; transition: background .2s;
+  }
+  .pw-btn:hover { background: var(--choco-l); }
+  .pw-error {
+    font-size: 12px; color: var(--rose); margin-top: 8px;
+    display: none; font-family: 'Golos Text', sans-serif;
+  }
+</style>
 </head>
 <body>
+
+<!-- ═══ ЭКРАН ПАРОЛЯ ═══ -->
+<div id="pw-gate">
+  <div class="pw-box">
+    <div class="pw-logo">Марковка — Мастер-класс</div>
+    <div class="pw-title">Введите пароль для входа</div>
+    <div class="pw-sub">Пароль указан в письме, которое вы получили после покупки.</div>
+    <input class="pw-input" type="password" id="pw-input" placeholder="Пароль" onkeydown="if(event.key==='Enter')checkPw()">
+    <div class="pw-error" id="pw-error">Неверный пароль. Проверьте письмо.</div>
+    <button class="pw-btn" onclick="checkPw()">Открыть мой МК →</button>
+  </div>
+</div>
+
+<script>
+function checkPw() {
+  const val = document.getElementById('pw-input').value.trim();
+  if (val === 'mk2026') {
+    document.getElementById('pw-gate').style.display = 'none';
+    sessionStorage.setItem('mk_auth', '1');
+  } else {
+    document.getElementById('pw-error').style.display = 'block';
+    document.getElementById('pw-input').focus();
+  }
+}
+// Если уже вводили пароль в этой сессии — не показываем экран снова
+if (sessionStorage.getItem('mk_auth') === '1') {
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('pw-gate').style.display = 'none';
+  });
+}
+</script>
 
 <!-- ═══ ПРОГРЕСС-ПОЛОСКА ═══ -->
 <div id="progress-bar">
@@ -1145,7 +1223,11 @@
       <p style="margin-top:20px;">И пожалуйста… покажите мне вашего малыша. Для меня нет большей радости, чем видеть, сколько любви рождается в ваших руках. </p>
     </div>
 
-    <div class="footer">Марковка — МК по мишке · <span id="out-footer">Мой мишка</span></div>
+    <div class="footer">Марковка — МК по мишке<span id="out-footer"></span></div>
+    <div style="text-align:center;font-size:11px;color:var(--muted);padding:10px 24px 24px;line-height:1.6;">
+      © Марковка · Все права защищены<br>
+      Копирование материалов строго запрещено · Только для личного использования
+    </div>
   </div>
 </div>
 
@@ -1295,7 +1377,7 @@ function generate() {
   document.getElementById('out-height-target').textContent = height + ' см';
 
   document.getElementById('out-name-1').textContent = name;
-  document.getElementById('out-footer').textContent = 'Мишка ' + name;
+  document.getElementById('out-footer').textContent = ' · Мишка ' + name;
 
   // Финальный блок — под гендер
   if (userGender === 'girl') {
