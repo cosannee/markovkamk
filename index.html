@@ -355,6 +355,7 @@
   }
   .gender-btn:hover { border-color: var(--sky); }
   .gender-btn.active { background: var(--sky-pale); border-color: var(--sky); color: #2A5A78; font-weight: 500; }
+  [data-gender="girl"].active { color: #8B3A5A; }
 
   /* ── Progress bar ── */
   #progress-bar {
@@ -1136,10 +1137,12 @@
 
     <!-- ═══ ФИНАЛ ═══ -->
     <div class="final-block">
-      <h3>Он готов.</h3>
-      <p>Возьмите его на руки. Почувствуйте этот вес.</p>
-      <p>Вы только что создали что-то, что останется с вашей семьёй навсегда.<br>Я так рада, что вы прошли этот путь до конца — и горжусь каждым из вас.</p>
-      <p style="margin-top:20px;">Пожалуйста, поделитесь фотографией вашего мишки — мне очень хочется его увидеть </p>
+      <h3 id="final-title">Он готов.</h3>
+      <p id="final-take">Возьмите его на руки. Закройте глаза.</p>
+      <p>Почувствуйте этот вес. Возможно, именно таким вы когда-то впервые держали своего малыша.</p>
+      <p>Пусть этот мишка станет для вашей семьи тёплым напоминанием о времени, которое так быстро проходит — но навсегда остаётся в сердце.</p>
+      <p>Спасибо, что доверили мне провести вас по этому пути.</p>
+      <p style="margin-top:20px;">И пожалуйста… покажите мне вашего малыша. Для меня нет большей радости, чем видеть, сколько любви рождается в ваших руках. </p>
     </div>
 
     <div class="footer">Марковка — МК по мишке · <span id="out-footer">Мой мишка</span></div>
@@ -1153,6 +1156,21 @@ function pickGender(btn) {
   document.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   userGender = btn.dataset.gender;
+
+  const root = document.documentElement;
+  if (userGender === 'girl') {
+    root.style.setProperty('--sky',      '#C4889F');
+    root.style.setProperty('--sky-light','#F5E0EB');
+    root.style.setProperty('--sky-pale', '#FAF0F4');
+    root.style.setProperty('--card-blue','#FAF0F4');
+    root.style.setProperty('--border-b', '#E9C8D5');
+  } else {
+    root.style.setProperty('--sky',      '#8BBFD6');
+    root.style.setProperty('--sky-light','#D6EAF3');
+    root.style.setProperty('--sky-pale', '#EEF5F9');
+    root.style.setProperty('--card-blue','#EEF5F9');
+    root.style.setProperty('--border-b', '#C0D8E8');
+  }
 }
 
 function round25(n) { return Math.round(n / 25) * 25; }
@@ -1278,6 +1296,15 @@ function generate() {
 
   document.getElementById('out-name-1').textContent = name;
   document.getElementById('out-footer').textContent = 'Мишка ' + name;
+
+  // Финальный блок — под гендер
+  if (userGender === 'girl') {
+    document.getElementById('final-title').textContent = 'Она готова.';
+    document.getElementById('final-take').textContent = 'Возьмите её на руки. Закройте глаза.';
+  } else {
+    document.getElementById('final-title').textContent = 'Он готов.';
+    document.getElementById('final-take').textContent = 'Возьмите его на руки. Закройте глаза.';
+  }
 
   // Progress bar
   document.getElementById('pb-name').textContent = name;
