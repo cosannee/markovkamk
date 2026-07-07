@@ -195,6 +195,11 @@
   .tip { background: var(--rose-l); border-left: 3px solid var(--rose); border-radius: 0 10px 10px 0; padding: 11px 16px; font-size: 13px; color: var(--choco); margin: 12px 0; line-height: 1.65; }
 
   /* Video */
+  .stage-badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 4px; align-items: center; }
+  .stage-badge-label { font-size: 10px; color: var(--muted); letter-spacing: .04em; margin-right: 2px; }
+  .stage-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; }
+  .badge-video { background: var(--sky-pale); color: #2A6080; border: 1px solid var(--border-b); }
+  .badge-schema { background: var(--rose-l); color: var(--rose); border: 1px solid #DDB8B5; }
   .video-block { background: var(--sky-pale); border: 1px solid var(--border-b); border-radius: 12px; padding: 12px 18px; display: flex; align-items: center; gap: 12px; margin: 16px 0; font-size: 14px; color: #2A6080; font-weight: 500; }
   .video-icon { width: 34px; height: 34px; background: var(--sky); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: white; font-size: 12px; padding-left: 3px; }
   .video-block a { color: #2A6080; text-decoration: underline; text-underline-offset: 3px; }
@@ -601,7 +606,7 @@
       <p>Сразу хочу сказать: процесс создания такого мишки — это творчество. <em>Настоящее. Непредсказуемое.</em> Так же, как наше тело девять месяцев создаёт уникального человека, вы станете создателем новорожденного мишки и внесёте в него свои штрихи. Что-то может не получиться с первого раза (будьте к этому готовы), могут возникнуть сомнения и противоречивые эмоции. Примите их, проживите — и идите дальше. Я рядом, и у вас всё получится.</p>
       <p>В этом мастер-классе вы найдёте всё что нужно: выкройки трёх размеров, пошаговые фото каждого этапа, видео сложных моментов и список материалов с прямыми ссылками. Я также поделюсь своими советами — теми самыми деталями, которые делают мишку особенным.</p>
       <div class="intro-block-sign">Давайте начнём.</div>
-      <div class="photo-slot" style="margin-top:20px;">📷 фото вступления</div>
+      <div class="photo-slot" style="margin-top:20px;"><img src="intro_photo.jpg" alt="Вступление" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
       <p style="margin-top:20px;color:var(--muted);font-size:14px;">Мастер-класс устроен так, что вы всегда можете вернуться к нужному этапу — видео тоже разбиты по шагам специально для этого. Не обязательно делать всё за один присест: дайте себе столько времени, сколько нужно. А если вдохновение накрыло с головой — дерзайте, один вечер, и ваш малыш будет готов.</p>
     </div>
 
@@ -776,6 +781,11 @@
       </div>
     </div>
 
+    <div class="stage-badges">
+      <span class="stage-badge-label">Сопровождение этапа</span>
+      <span class="stage-badge badge-video">▶ Видеоурок</span>
+    </div>
+
     <p>Вот он — момент когда мишка начинает обретать форму. Выберите удобный для вас способ.</p>
 
     <div class="sub-section">
@@ -829,6 +839,11 @@
       </div>
     </div>
 
+    <div class="stage-badges">
+      <span class="stage-badge-label">Сопровождение этапа</span>
+      <span class="stage-badge badge-video">▶ Видеоурок</span>
+    </div>
+
     <p>Вот он — момент когда мишка начинает обретать вес вашего малыша. Не торопитесь здесь, этот этап требует внимания и чуть больше времени. Я бы рекомендовала выделить на это не меньше часа — если его нет, можно вернуться позже.</p>
     <p>Гранулят распределяется по деталям не поровну — у каждой своя норма. Ориентируйтесь на таблицу ниже: она составлена под <span class="hl-name" id="out-name-1">вашего малыша</span>. Логика простая: сначала наполняете голову, затем конечности, взвешиваете всё вместе — и остаток гранулята досыпаете в туловище до нужного веса. Расчёт уже учитывает вес ткани и синтепуха — поэтому гранулята может понадобиться чуть меньше, чем точный вес малыша. Это нормально, взвешивание на этапе туловища всё покажет.</p>
 
@@ -876,6 +891,12 @@
         <h2>Взгляд</h2>
         <div class="tagline">Именно здесь рождается тот самый взгляд</div>
       </div>
+    </div>
+
+    <div class="stage-badges">
+      <span class="stage-badge-label">Сопровождение этапа</span>
+      <span class="stage-badge badge-video">▶ Видеоурок</span>
+      <span class="stage-badge badge-schema">📷 Схема</span>
     </div>
 
     <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: утяжка и бровки — <a href="#">смотреть</a></div></div>
@@ -929,7 +950,11 @@
       </div>
     </div>
 
-    <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: вышивка носика — <a href="#">смотреть</a></div></div>
+    <div class="stage-badges">
+      <span class="stage-badge-label">Сопровождение этапа</span>
+      <span class="stage-badge badge-video">▶ Видеоурок</span>
+      <span class="stage-badge badge-schema">📷 Схема</span>
+    </div>
 
     <div class="sub-section">
       <h3>Носик</h3>
@@ -975,13 +1000,17 @@
         <div class="tagline">Ручки и ножки обретают тот же вес, что и всё остальное тело</div>
       </div>
     </div>
+    <div class="stage-badges">
+      <span class="stage-badge-label">Сопровождение этапа</span>
+      <span class="stage-badge badge-video">▶ Видеоурок</span>
+      <span class="stage-badge badge-schema">📷 Схема</span>
+    </div>
 
     <div class="sub-section">
       <h3>Ручки <span class="count">2 шт.</span></h3>
       <p>Начните с небольшого количества синтепуха — плотно заполните самый кончик, чтобы он не остался пустым. На схеме ниже показаны слои заполнения синтепуха и гранулята.</p>
       <p>Затем добавьте <span class="hl" id="out-arm-half1">—</span> гранулята, сверху снова слой синтепуха и хорошо утрамбуйте. Досыпьте ещё <span class="hl" id="out-arm-half2">—</span> — итого <span class="hl" id="out-arm-total">—</span> на каждую ручку.</p>
       <p>Завершите синтепухом, оставив около 2–3 см свободным от края. Закройте отверстие машинной строчкой или потайным швом вручную по схеме ниже. Повторите для второй ручки.</p>
-      <div class="photo-slot">📷 схема зашивания ручки</div>
     </div>
 
     <div class="sub-section">
@@ -989,7 +1018,7 @@
       <p>Начните со ступни — плотно набейте синтепухом самую нижнюю часть, хорошо трамбуйте чтобы ножка держала форму.</p>
       <p>Добавьте <span class="hl" id="out-leg-half1">—</span> гранулята, затем снова синтепух и ещё <span class="hl" id="out-leg-half2">—</span> — итого <span class="hl" id="out-leg-total">—</span> на каждую ножку.</p>
       <p>Завершите синтепухом, оставив 2–3 см до края. Зашейте отверстие по схеме ниже и повторите для второй ножки.</p>
-      <div class="photo-slot">📷 схема зашивания ножки</div>
+      <div class="photo-slot"><img src="stage7_nozhka_shema.jpg" alt="Схема зашивания ножки" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
       <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: наполнение ручек и ножек — <a href="#">смотреть</a></div></div>
     </div>
 
@@ -1004,9 +1033,14 @@
       </div>
     </div>
 
+    <div class="stage-badges">
+      <span class="stage-badge-label">Сопровождение этапа</span>
+      <span class="stage-badge badge-video">▶ Видеоурок</span>
+    </div>
+
     <p>У туловища два открытых края — сверху (поуже) и снизу (пошире). Снизу будем вшивать ножки. Обратите внимание: туловище сейчас вывернуто на изнанку, лицевая сторона внутри — так и должно быть.</p>
     <p>Вставьте ножки в нижнее отверстие (широкое) лапками внутрь и выровняйте их по высоте — это важно, иначе мишка будет «прихрамывать». Закрепите булавками или сметайте вручную чтобы ничего не сдвинулось. Прострочите на машинке или прошейте крепким ручным швом «назад иголку».</p>
-    <div class="photo-slot">📷 фото: ножки вставлены перед прошиванием</div>
+    <div class="photo-slot"><img src="stage8_nozhki_pered_proshivaniem.jpg" alt="Ножки перед прошиванием" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
     <p>Выверните туловище через узкое отверстие на лицевую сторону — ножки уже на месте.</p>
     <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: вшивание ножек в туловище — <a href="#">смотреть</a></div></div>
 
@@ -1021,6 +1055,11 @@
         <h2>Наполнение туловища, подгонка роста и веса</h2>
         <div class="tagline">Самый сокровенный момент — именно сейчас мишка обретает вес вашего малыша</div>
       </div>
+    </div>
+
+    <div class="stage-badges">
+      <span class="stage-badge-label">Сопровождение этапа</span>
+      <span class="stage-badge badge-video">▶ Видеоурок</span>
     </div>
 
     <div class="quote">Помните, как впервые взяли его на руки и удивились — какой лёгкий? Сейчас вы воссоздаёте именно этот момент.</div>
@@ -1059,12 +1098,17 @@
       </div>
     </div>
 
+    <div class="stage-badges">
+      <span class="stage-badge-label">Сопровождение этапа</span>
+      <span class="stage-badge badge-video">▶ Видеоурок</span>
+    </div>
+
     <p>Найдите боковые швы туловища — они станут ориентиром для симметричного расположения ручек. Шов должен приходиться ровно на середину ручки.</p>
     <p>Возьмите капроновую нить с узелком, длиной около 1 метра. Пришейте первую ручку сверху по верхнему краю туловища. Той же нитью переходите ко второй ручке по горловине, слегка стягивая её — но не сильно, голова должна сесть красиво. Прошейте вторую ручку так же сверху. По второму краю горловины вернитесь к первой ручке и закрепите её с другой стороны.</p>
     <p>Теперь возьмите новую нить с узелком. Поднимите лапку и вставьте иголку в подмышку — так спрячется узелок. Выведите иглу на боковом шве ручки сверху. Делайте стежки вниз, чередуя — стежок в тело, стежок в ручку — затягивая нить. Опускайтесь вниз на 3–4 см. Затем введите иглу в тело и выведите её наверх у начала ручки, плотно затяните нить и сделайте узелок. Пройдитесь швом под подмышкой по всей ширине — стежок в ручку, стежок в тело. На другом конце вернитесь в исходное положение ручки и пройдите по боковому шву с другой стороны. Затягивайте нить по мере шитья. Сверху сделайте узелок. Повторите для второй ручки.</p>
     <div class="tip">Этот этап гораздо проще понять на видео — рекомендую посмотреть перед тем как начать.</div>
     <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: пришивание ручек — <a href="#">смотреть</a></div></div>
-    <div class="photo-slot">📷 фото: готовые пришитые ручки</div>
+    <div class="photo-slot"><img src="stage10_ruchki_gotovye.jpg" alt="Готовые пришитые ручки" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
     <p>После этого ещё раз проверьте рост мишки — всё ли совпадает с задуманным.</p>
 
     <div class="quote">Этот вес уже был знаком вам однажды. Теперь он снова у вас в руках.</div>
@@ -1079,10 +1123,14 @@
         <div class="tagline">Самый ответственный момент — он почти готов</div>
       </div>
     </div>
+    <div class="stage-badges">
+      <span class="stage-badge-label">Сопровождение этапа</span>
+      <span class="stage-badge badge-video">▶ Видеоурок</span>
+    </div>
 
     <p>Используйте плотную капроновую нить или сложите обычную в 4–6 слоёв. Начинайте с затылка, от центра, и двигайтесь по кругу — очень плотно стягивая голову и туловище между собой. Пройдитесь 2–3 полных круга, периодически закрепляя нить узелками по ходу. Когда голова надёжно зафиксирована — спрячьте нить внутри.</p>
     <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: пришивание головы — <a href="#">смотреть</a></div></div>
-    <div class="photo-slot">📷 фото: готовый мишка</div>
+    <div class="photo-slot"><img src="stage11_mishka_gotovy.jpg" alt="Готовый мишка" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
 
     <a class="back-to-toc" href="#toc">↑ К содержанию</a>
 
