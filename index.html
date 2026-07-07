@@ -234,7 +234,7 @@
     border-radius: 20px;
     margin-bottom: 12px;
   }
-  .taste-label::before { content: '✦'; font-size: 11px; }
+  .taste-label::before { content: ''; font-size: 11px; }
   .taste-text {
     font-size: 14px;
     color: var(--choco);
@@ -541,8 +541,8 @@
     <div class="field">
       <label>Пол малыша</label>
       <div class="gender-row">
-        <button type="button" class="gender-btn" data-gender="boy" onclick="pickGender(this)">👶 Мальчик</button>
-        <button type="button" class="gender-btn" data-gender="girl" onclick="pickGender(this)">👶 Девочка</button>
+        <button type="button" class="gender-btn" data-gender="boy" onclick="pickGender(this)"> Мальчик</button>
+        <button type="button" class="gender-btn" data-gender="girl" onclick="pickGender(this)"> Девочка</button>
       </div>
     </div>
     <div class="field-row">
@@ -598,6 +598,7 @@
 
     <!-- ═══ ВСТУПЛЕНИЕ ═══ -->
     <h2 class="section-h">Вступление</h2>
+    <div class="photo-slot"><img src="intro_photo.jpg" alt="Вступление" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
     <div class="intro-block">
       <p>Здравствуйте, <span class="hl-name" id="intro-mom">—</span>, меня зовут Даша, и я рада, что вы здесь.</p>
       <p>Для меня — думаю, как и для вас — этот мишка не просто игрушка. Это реликвия. Память о моменте, который проходит так быстро, что успеваешь только моргнуть.</p>
@@ -606,7 +607,6 @@
       <p>Сразу хочу сказать: процесс создания такого мишки — это творчество. <em>Настоящее. Непредсказуемое.</em> Так же, как наше тело девять месяцев создаёт уникального человека, вы станете создателем новорожденного мишки и внесёте в него свои штрихи. Что-то может не получиться с первого раза (будьте к этому готовы), могут возникнуть сомнения и противоречивые эмоции. Примите их, проживите — и идите дальше. Я рядом, и у вас всё получится.</p>
       <p>В этом мастер-классе вы найдёте всё что нужно: выкройки трёх размеров, пошаговые фото каждого этапа, видео сложных моментов и список материалов с прямыми ссылками. Я также поделюсь своими советами — теми самыми деталями, которые делают мишку особенным.</p>
       <div class="intro-block-sign">Давайте начнём.</div>
-      <div class="photo-slot" style="margin-top:20px;"><img src="intro_photo.jpg" alt="Вступление" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
       <p style="margin-top:20px;color:var(--muted);font-size:14px;">Мастер-класс устроен так, что вы всегда можете вернуться к нужному этапу — видео тоже разбиты по шагам специально для этого. Не обязательно делать всё за один присест: дайте себе столько времени, сколько нужно. А если вдохновение накрыло с головой — дерзайте, один вечер, и ваш малыш будет готов.</p>
     </div>
 
@@ -641,7 +641,7 @@
       </div>
       <a href="https://www.wildberries.ru/catalog/527977267/detail.aspx?size=727892737" target="_blank">Купить на Wildberries</a>
       <div class="m-desc">Или COLOR Si 1,4 мм — <a href="https://www.wildberries.ru/catalog/137722676/detail.aspx?size=234405003" target="_blank">на Wildberries</a>. Именно гранулят передаёт настоящий вес малыша — в этом и есть суть мишки.</div>
-      <div class="blue-section" style="margin-top:10px;padding:12px 16px;">💡 Если вы хотите просто мягкую игрушку без веса — гранулят не нужен, достаточно синтепуха.</div>
+      <div class="blue-section" style="margin-top:10px;padding:12px 16px;"> Если вы хотите просто мягкую игрушку без веса — гранулят не нужен, достаточно синтепуха.</div>
     </div>
 
     <div class="material-item">
@@ -824,7 +824,7 @@
     <p>Если есть желание — пройдитесь по деталям паром. Это не обязательно, но ткань станет мягче и набивать будет заметно легче.</p>
     <p>Когда все детали вывернуты и расправлены — можно переходить к самому важному шагу.</p>
 
-    <div class="warm"><b>Кстати, как вы?</b> Всё получается? Если на каком-то этапе что-то пошло не так — не переживайте, это нормально. Напишите мне, разберёмся вместе 🤍</div>
+    <div class="warm"><b>Кстати, как вы?</b> Всё получается? Если на каком-то этапе что-то пошло не так — не переживайте, это нормально. Напишите мне, разберёмся вместе </div>
 
     <div class="quote">Если что-то пошло не идеально — ничего. Любовь тоже никогда не идёт по плану. И всё равно получается прекрасным.</div>
 
@@ -896,7 +896,7 @@
     <div class="stage-badges">
       <span class="stage-badge-label">Сопровождение этапа</span>
       <span class="stage-badge badge-video">▶ Видеоурок</span>
-      <span class="stage-badge badge-schema">📷 Схема</span>
+      <span class="stage-badge badge-schema"> Схема</span>
     </div>
 
     <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: утяжка и бровки — <a href="#">смотреть</a></div></div>
@@ -953,7 +953,7 @@
     <div class="stage-badges">
       <span class="stage-badge-label">Сопровождение этапа</span>
       <span class="stage-badge badge-video">▶ Видеоурок</span>
-      <span class="stage-badge badge-schema">📷 Схема</span>
+      <span class="stage-badge badge-schema"> Схема</span>
     </div>
 
     <div class="sub-section">
@@ -1003,7 +1003,7 @@
     <div class="stage-badges">
       <span class="stage-badge-label">Сопровождение этапа</span>
       <span class="stage-badge badge-video">▶ Видеоурок</span>
-      <span class="stage-badge badge-schema">📷 Схема</span>
+      <span class="stage-badge badge-schema"> Схема</span>
     </div>
 
     <div class="sub-section">
@@ -1139,7 +1139,7 @@
       <h3>Он готов.</h3>
       <p>Возьмите его на руки. Почувствуйте этот вес.</p>
       <p>Вы только что создали что-то, что останется с вашей семьёй навсегда.<br>Я так рада, что вы прошли этот путь до конца — и горжусь каждым из вас.</p>
-      <p style="margin-top:20px;">Пожалуйста, поделитесь фотографией вашего мишки — мне очень хочется его увидеть 🤍</p>
+      <p style="margin-top:20px;">Пожалуйста, поделитесь фотографией вашего мишки — мне очень хочется его увидеть </p>
     </div>
 
     <div class="footer">Марковка — МК по мишке · <span id="out-footer">Мой мишка</span></div>
