@@ -668,7 +668,9 @@ if (sessionStorage.getItem('mk_auth') === '1') {
           <div class="size-tag-main" id="out-badge-size">Выкройка —</div>
           <div style="font-size:11px;color:var(--muted);margin-top:6px;">Гранулят — по весу</div>
         </div>
-        <button class="btn-print" onclick="window.print()">⬇ Сохранить PDF</button>
+        <div style="margin-top:10px;font-size:11px;color:var(--muted);text-align:center;" id="out-pattern-hint">Ваша выкройка: <b id="out-pattern-label">—</b></div>
+        <button class="btn-print" onclick="window.print()" style="margin-top:6px;">⬇ Сохранить МК в PDF</button>
+        <a class="btn-print" id="btn-pattern-dl" href="#" target="_blank" style="display:block;text-align:center;margin-top:8px;text-decoration:none;">⬇ Скачать выкройку</a>
       </div>
     </div>
 
@@ -1374,6 +1376,17 @@ function generate() {
   document.getElementById('out-badge-name').textContent = name;
   document.getElementById('out-badge-stats').textContent = weight + ' г · ' + height + ' см';
   document.getElementById('out-badge-size').textContent = c.patternLabel;
+
+  // Ссылки на выкройки
+  const patternLinks = {
+    'S': 'https://disk.yandex.ru/i/QS0AS1rjxpF68w',
+    'M': 'https://disk.yandex.ru/i/sWkPsTVfLzjgJA',
+    'L': 'https://disk.yandex.ru/i/HnA2JH2gl9p-qg'
+  };
+  const patternRanges = { 'S': '40–48 см', 'M': '49–53 см', 'L': '54–60 см' };
+  document.getElementById('out-pattern-label').textContent = c.patternSize + ' · ' + patternRanges[c.patternSize];
+  document.getElementById('btn-pattern-dl').href = patternLinks[c.patternSize];
+  document.getElementById('btn-pattern-dl').textContent = '⬇ Скачать выкройку ' + c.patternSize;
 
   // Baby greeting - age calculation
   const greetEl = document.getElementById('baby-greeting');
