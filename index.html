@@ -830,6 +830,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
     <p>Всего три размера — под разный рост малыша. Для <span class="hl-name" id="out-name-patt">вашего малыша</span> с ростом <span class="hl" id="out-height-patt">— см</span> подходит:</p>
 
     <div class="sizes-inline">
+      <div style="width:100%;text-align:center;font-size:11px;color:var(--muted);margin-bottom:8px;">Для скачивания выкройки нажмите на необходимую</div>
       <a class="size-pill" id="pill-s" href="https://disk.yandex.ru/i/QS0AS1rjxpF68w" target="_blank">S · 40–48 см ↓</a>
       <a class="size-pill" id="pill-m" href="https://disk.yandex.ru/i/sWkPsTVfLzjgJA" target="_blank">M · 49–53 см ↓</a>
       <a class="size-pill" id="pill-l" href="https://disk.yandex.ru/i/HnA2JH2gl9p-qg" target="_blank">L · 54–60 см ↓</a>
@@ -964,7 +965,9 @@ if (sessionStorage.getItem('mk_auth') === '1') {
     <div class="pers-table">
       <div class="pers-table-head">
         <span>Распределение гранулята</span>
-        <span style="font-size:12px;color:var(--muted);">Итого: <b id="out-total">—</b></span>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;font-weight:400;">
+          Вес малыша: <b id="out-weight-actual">—</b> · Расчётный объём гранулята: <b id="out-total">—</b>
+        </div>
       </div>
       <div class="pers-row"><span class="lbl">Голова</span><span class="val" id="out-head">—</span></div>
       <div class="pers-row"><span class="lbl">Одна рука</span><span class="val" id="out-arm">—</span></div>
@@ -973,6 +976,9 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       <div class="pers-row"><span class="lbl">Обе ноги</span><span class="val" id="out-legs">—</span></div>
       <div class="pers-row total-row"><span class="lbl">Конечности + голова</span><span class="val" id="out-limbs-total">—</span></div>
       <div class="pers-row body-row"><span class="lbl">Туловище — остаток</span><span class="val" id="out-body">—</span></div>
+    </div>
+    <div style="font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6;">
+      Расчёт приблизительный — уже учитывает вес ткани и синтепуха. Итоговое количество гранулята может варьироваться в зависимости от плотности набивки синтепухом. Точный вес всегда проверяйте на весах при сборке туловища.
     </div>
 
     <a class="back-to-toc" href="#toc">↑ К содержанию</a>
@@ -1423,6 +1429,7 @@ function generate() {
   document.getElementById('out-limbs-total').textContent = fmt(c.limbsTotal);
   document.getElementById('out-body').textContent      = fmt(c.body);
   document.getElementById('out-total').textContent     = fmt(c.total);
+  document.getElementById('out-weight-actual').textContent = fmt(weight);
 
   // Inline
   document.getElementById('out-arm-half1').textContent  = fmt(armHalf);
