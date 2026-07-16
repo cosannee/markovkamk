@@ -708,6 +708,27 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       </div>
     </div>
 
+    <!-- ═══ С ЧЕГО НАЧАТЬ ═══ -->
+    <div class="blue-section" style="margin:24px 0 32px;">
+      <h3 style="font-size:17px;margin-bottom:14px;">Как устроен этот МК — читайте прежде чем начать</h3>
+      <p>Я поведу вас за руку. Никаких лишних слов — только шаг за шагом, от первого стежка до готового мишки.</p>
+      <p style="margin-top:10px;">Навигация по этапам всегда под рукой — в оглавлении ниже. Можно вернуться к любому моменту в любое время.</p>
+      <div style="margin-top:16px;display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:flex-start;gap:12px;">
+          <span style="background:var(--sky);color:white;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;">1</span>
+          <div><b>Изучите список материалов</b> — убедитесь что всё есть под рукой перед началом. Ссылки на Wildberries уже внутри.</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:12px;">
+          <span style="background:var(--sky);color:white;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;">2</span>
+          <div><b>Распечатайте и вырежьте выкройку</b> — это первое что нужно сделать физически. Нужный размер уже подобран под вашего малыша и подсвечен ниже.</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:12px;">
+          <span style="background:var(--sky);color:white;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;">3</span>
+          <div><b>Теперь вы готовы</b> — переходите к Этапу 1 и начинается самое волшебное.</div>
+        </div>
+      </div>
+    </div>
+
     <!-- ═══ МАТЕРИАЛЫ ═══ -->
     <h2 class="section-h">Список материалов</h2>
 
@@ -861,9 +882,9 @@ if (sessionStorage.getItem('mk_auth') === '1') {
 
     <div class="sizes-inline">
       <div style="width:100%;text-align:center;font-size:11px;color:var(--muted);margin-bottom:8px;">Для скачивания выкройки нажмите на необходимую</div>
-      <a class="size-pill" id="pill-s" href="https://disk.yandex.ru/i/QS0AS1rjxpF68w" target="_blank">S · 40–48 см ↓</a>
-      <a class="size-pill" id="pill-m" href="https://disk.yandex.ru/i/sWkPsTVfLzjgJA" target="_blank">M · 49–53 см ↓</a>
-      <a class="size-pill" id="pill-l" href="https://disk.yandex.ru/i/HnA2JH2gl9p-qg" target="_blank">L · 54–60 см ↓</a>
+      <a class="size-pill" id="pill-s" href="https://disk.yandex.ru/i/B583RfMP2_PlGQ" target="_blank">S · 40–48 см ↓</a>
+      <a class="size-pill" id="pill-m" href="https://disk.yandex.ru/i/se0i3QBy64e_8w" target="_blank">M · 49–53 см ↓</a>
+      <a class="size-pill" id="pill-l" href="https://disk.yandex.ru/i/1xoAutbzYtZdOQ" target="_blank">L · 54–60 см ↓</a>
     </div>
 
     <p>Выберите ту, что ближе всего к росту вашего ребёнка. Если рост ровно на границе — берите больший размер, лучше немного подогнать, чем не хватит ткани.</p>
@@ -1524,9 +1545,9 @@ function generate() {
 
   // Ссылки на выкройки
   const patternLinks = {
-    'S': 'https://disk.yandex.ru/i/QS0AS1rjxpF68w',
-    'M': 'https://disk.yandex.ru/i/sWkPsTVfLzjgJA',
-    'L': 'https://disk.yandex.ru/i/HnA2JH2gl9p-qg'
+    'S': 'https://disk.yandex.ru/i/B583RfMP2_PlGQ',
+    'M': 'https://disk.yandex.ru/i/se0i3QBy64e_8w',
+    'L': 'https://disk.yandex.ru/i/1xoAutbzYtZdOQ'
   };
   const patternRanges = { 'S': '40–48 см', 'M': '49–53 см', 'L': '54–60 см' };
   document.getElementById('out-pattern-label').textContent = c.patternSize + ' · ' + patternRanges[c.patternSize];
