@@ -184,12 +184,7 @@
     color: #2A6080;
     font-size: 13px;
     font-weight: 500;
-    text-decoration: none;
-    cursor: pointer;
-    transition: opacity .2s;
-    display: inline-block;
   }
-  .size-pill:hover { opacity: .8; }
   .size-pill.active { background: var(--sky); color: white; }
 
   /* Note */
@@ -523,44 +518,48 @@
   /* ═══ ПАРОЛЬ ═══ */
   #pw-gate {
     position: fixed; inset: 0; z-index: 9999;
-    background: var(--bg);
+    background: var(--cream);
     display: flex; align-items: center; justify-content: center;
     font-family: 'Golos Text', Georgia, sans-serif;
   }
   .pw-box {
-    background: var(--card);
+    background: white;
     border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 52px 48px;
-    max-width: 480px; width: 90%;
-    box-shadow: 0 4px 32px rgba(62,41,35,.07);
+    border-radius: 20px;
+    padding: 40px 36px;
+    max-width: 360px; width: 90%;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(62,41,35,.08);
   }
   .pw-logo {
-    font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 8px; font-weight: 500;
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 8px;
+    font-family: 'Golos Text', sans-serif;
   }
   .pw-title {
-    font-size: 26px; font-weight: 600; color: var(--choco);
-    margin-bottom: 8px; line-height: 1.25;
+    font-size: 22px; font-weight: 600; color: var(--choco);
+    margin-bottom: 6px;
+    font-family: 'Golos Text', sans-serif;
   }
   .pw-sub {
-    font-size: 14px; color: var(--muted);
-    margin-bottom: 28px; line-height: 1.6;
+    font-size: 13px; color: var(--muted); font-style: italic;
+    margin-bottom: 24px; line-height: 1.6;
+    font-family: Georgia, serif;
   }
   .pw-input {
-    width: 100%; background: var(--bg); border: 1.5px solid var(--border);
-    border-radius: 10px; padding: 12px 16px; font-size: 16px;
-    font-family: 'Golos Text', sans-serif; color: var(--text);
-    outline: none; margin-bottom: 12px; transition: border-color .2s;
+    width: 100%; border: 1.5px solid var(--border); border-radius: 10px;
+    padding: 11px 16px; font-size: 15px; font-family: 'Golos Text', sans-serif;
+    color: var(--text); outline: none; margin-bottom: 12px;
+    transition: border-color .2s; background: var(--bg);
   }
-  .pw-input:focus { border-color: var(--sky); }
+  .pw-input:focus { border-color: var(--rose); }
   .pw-btn {
-    width: 100%; background: var(--choco); color: white;
-    border: none; border-radius: 12px; padding: 15px;
-    font-size: 15px; font-weight: 600; font-family: 'Golos Text', sans-serif;
-    cursor: pointer; margin-top: 8px; transition: background .2s;
+    width: 100%; background: var(--rose); color: white;
+    border: none; border-radius: 10px; padding: 12px;
+    font-size: 14px; font-weight: 600; font-family: 'Golos Text', sans-serif;
+    cursor: pointer; transition: opacity .2s;
   }
-  .pw-btn:hover { background: var(--choco-l); }
+  .pw-btn:hover { opacity: .88; }
   .pw-error {
     font-size: 12px; color: var(--rose); margin-top: 8px;
     display: none; font-family: 'Golos Text', sans-serif;
@@ -572,12 +571,12 @@
 <!-- ═══ ЭКРАН ПАРОЛЯ ═══ -->
 <div id="pw-gate">
   <div class="pw-box">
-    <div class="pw-logo">Марковка — Мастер-класс</div>
-    <div class="pw-title">Введите пароль для входа</div>
-    <div class="pw-sub">Пароль указан в письме, которое вы получили после покупки.</div>
-    <input class="pw-input" type="password" id="pw-input" placeholder="Пароль" onkeydown="if(event.key==='Enter')checkPw()">
+    <div class="pw-logo">Марковка</div>
+    <div class="pw-title">Мастер-класс</div>
+    <div class="pw-sub">Мишка весом и ростом<br>с вашим новорождённым</div>
+    <input class="pw-input" type="password" id="pw-input" placeholder="Введите пароль" onkeydown="if(event.key==='Enter')checkPw()">
+    <button class="pw-btn" onclick="checkPw()">Войти</button>
     <div class="pw-error" id="pw-error">Неверный пароль. Проверьте письмо.</div>
-    <button class="pw-btn" onclick="checkPw()">Открыть мой МК →</button>
   </div>
 </div>
 
@@ -668,10 +667,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
           <div class="size-tag-main" id="out-badge-size">Выкройка —</div>
           <div style="font-size:11px;color:var(--muted);margin-top:6px;">Гранулят — по весу</div>
         </div>
-        <div style="margin-top:10px;font-size:11px;color:var(--muted);text-align:center;" id="out-pattern-hint">Ваша выкройка: <b id="out-pattern-label">—</b></div>
-        <button class="btn-print" onclick="window.print()" style="margin-top:6px;">⬇ Сохранить МК в PDF</button>
-        <a class="btn-print" id="btn-pattern-dl" href="#" target="_blank" style="display:block;text-align:center;margin-top:8px;text-decoration:none;">⬇ Скачать выкройку</a>
-        <a class="btn-print" href="https://disk.yandex.ru/i/ROntX3k5ri7q4w" target="_blank" style="display:block;text-align:center;margin-top:6px;text-decoration:none;">⬇ Скачать выкройку одежды</a>
+        <button class="btn-print" onclick="window.print()">⬇ Сохранить PDF</button>
       </div>
     </div>
 
@@ -692,16 +688,29 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       <p>Когда мой младший сын появился на свет, я не могла взять его на руки целую неделю. Я не ощутила тот самый новорождённый вес — лёгкий, тёплый, умещающийся на ладони. Но дети растут так быстро, что этот миг остаётся лишь воспоминанием, по которому так часто тоскуешь.</p>
       <p>Именно поэтому я понимаю, как каждой маме хочется сохранить этот момент. Снова ощутить тот вес и рост. Обнять своего малыша таким, каким он был в самом начале. И каждый раз — когда ему плюс неделя, месяц, год — возвращаться к тому первому, ценному мигу.</p>
       <p>Сразу хочу сказать: процесс создания такого мишки — это творчество. <em>Настоящее. Непредсказуемое.</em> Так же, как наше тело девять месяцев создаёт уникального человека, вы станете создателем новорожденного мишки и внесёте в него свои штрихи. Что-то может не получиться с первого раза (будьте к этому готовы), могут возникнуть сомнения и противоречивые эмоции. Примите их, проживите — и идите дальше. Я рядом, и у вас всё получится.</p>
-      <p>В этом мастер-классе вы найдёте всё что нужно: выкройки трёх размеров, видеосопровождение каждого этапа и список материалов с прямыми ссылками. Я также поделюсь своими советами — теми самыми деталями, которые делают мишку особенным.</p>
+      <p>В этом мастер-классе вы найдёте всё что нужно: выкройки трёх размеров, пошаговые фото каждого этапа, видео сложных моментов и список материалов с прямыми ссылками. Я также поделюсь своими советами — теми самыми деталями, которые делают мишку особенным.</p>
       <div class="intro-block-sign">Давайте начнём.</div>
       <p style="margin-top:20px;color:var(--muted);font-size:14px;">Мастер-класс устроен так, что вы всегда можете вернуться к нужному этапу — видео тоже разбиты по шагам специально для этого. Не обязательно делать всё за один присест: дайте себе столько времени, сколько нужно. А если вдохновение накрыло с головой — дерзайте, один вечер, и ваш малыш будет готов.</p>
+    </div>
 
-      <div class="blue-section" style="margin-top:20px;">
-        <h3>Мы рядом</h3>
-        <p>Если что-то пошло не так или остался вопрос — пишите нам, разберёмся вместе.</p>
-        <p style="margin-top:10px;"><b>Александра</b>, куратор мастер-класса — первичная связь по всем вопросам.<br>
-        Telegram: <a href="https://t.me/cosannee" target="_blank">@cosannee</a> · WhatsApp/другие мессенджеры: <a href="tel:+79996167150">+7 999 616-71-50</a></p>
-        <p style="margin-top:6px;"><b>Даша</b> — автор и создатель Марковки. Отвечает на вопросы по процессу шитья и делится личным опытом.</p>
+    <!-- ═══ С ЧЕГО НАЧАТЬ ═══ -->
+    <div class="blue-section" style="margin:24px 0 32px;">
+      <h3 style="font-size:17px;margin-bottom:14px;">Как устроен этот МК — читайте прежде чем начать</h3>
+      <p>Я поведу вас за руку. Никаких лишних слов — только шаг за шагом, от первого стежка до готового мишки.</p>
+      <p style="margin-top:10px;">Навигация по этапам всегда под рукой — в оглавлении выше. Можно вернуться к любому моменту в любое время.</p>
+      <div style="margin-top:16px;display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:flex-start;gap:12px;">
+          <span style="background:var(--sky);color:white;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;">1</span>
+          <div><b>Изучите список материалов</b> — убедитесь что всё есть под рукой перед началом. Ссылки на Wildberries уже внутри.</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:12px;">
+          <span style="background:var(--sky);color:white;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;">2</span>
+          <div><b>Распечатайте и вырежьте выкройку</b> — это первое что нужно сделать физически. Нужный размер уже подобран под вашего малыша и подсвечен выше.</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:12px;">
+          <span style="background:var(--sky);color:white;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;">3</span>
+          <div><b>Теперь вы готовы</b> — переходите к Этапу 1 и начинается самое волшебное.</div>
+        </div>
       </div>
     </div>
 
@@ -745,31 +754,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
         <span class="material-tag tag-noreplace">Не заменять</span>
       </div>
       <a href="https://www.wildberries.ru/catalog/242251540/detail.aspx?size=380422150" target="_blank">Купить на Wildberries</a>
-      <div class="m-desc">Используются <b>только для ручного сшивания деталей</b> — утяжка глаз, пришивание ушек, головы, ручек. Подбирайте цвет под выбранную ткань мишки.<br>В швейную машинку капроновые нитки не вставлять — машинка их не выдержит.</div>
-    </div>
-
-    <div class="material-item">
-      <div class="m-head">
-        <div class="m-name">Обычные нитки для машинки <span style="color:var(--muted);font-weight:400;">— 1 катушка</span></div>
-        <span class="material-tag tag-noreplace">Не заменять</span>
-      </div>
-      <div class="m-desc">Для машинной строчки используйте обычные швейные нитки <b>в цвет ткани мишки</b> — полиэстер или хлопок. Капроновые нитки для машинки не подходят.</div>
-    </div>
-
-    <div class="material-item">
-      <div class="m-head">
-        <div class="m-name">Кухонные весы</div>
-        <span class="material-tag tag-noreplace">Не заменять</span>
-      </div>
-      <div class="m-desc">Нужны чтобы точно подогнать вес мишки под вес вашего малыша. Подойдут любые с точностью до 1 г и максимальным весом от 5 кг.</div>
-    </div>
-
-    <div class="material-item">
-      <div class="m-head">
-        <div class="m-name">Сантиметровая лента</div>
-        <span class="material-tag tag-noreplace">Не заменять</span>
-      </div>
-      <div class="m-desc">Нужна для подгонки роста мишки — чтобы он совпал с ростом вашего новорождённого. Подойдёт любая портновская или обычная гибкая лента.</div>
+      <div class="m-desc">Очень прочные — выдерживают сильное натяжение при утяжках и плотной набивке. Подбирайте цвет под выбранную ткань мишки.</div>
     </div>
 
     <!-- ═ ПО ЖЕЛАНИЮ ═ -->
@@ -839,22 +824,15 @@ if (sessionStorage.getItem('mk_auth') === '1') {
     <p>Всего три размера — под разный рост малыша. Для <span class="hl-name" id="out-name-patt">вашего малыша</span> с ростом <span class="hl" id="out-height-patt">— см</span> подходит:</p>
 
     <div class="sizes-inline">
-      <div style="width:100%;text-align:center;font-size:11px;color:var(--muted);margin-bottom:8px;">Для скачивания выкройки нажмите на необходимую</div>
-      <a class="size-pill" id="pill-s" href="https://disk.yandex.ru/i/QS0AS1rjxpF68w" target="_blank">S · 40–48 см ↓</a>
-      <a class="size-pill" id="pill-m" href="https://disk.yandex.ru/i/sWkPsTVfLzjgJA" target="_blank">M · 49–53 см ↓</a>
-      <a class="size-pill" id="pill-l" href="https://disk.yandex.ru/i/HnA2JH2gl9p-qg" target="_blank">L · 54–60 см ↓</a>
+      <div class="size-pill" id="pill-s">S · 40–48 см</div>
+      <div class="size-pill" id="pill-m">M · 49–53 см</div>
+      <div class="size-pill" id="pill-l">L · 54–60 см</div>
     </div>
 
     <p>Выберите ту, что ближе всего к росту вашего ребёнка. Если рост ровно на границе — берите больший размер, лучше немного подогнать, чем не хватит ткани.</p>
-
     <p>Распечатайте вашу выкройку в оригинальном размере — без масштабирования, иначе мишка получится не того роста. В настройках печати выберите «реальный размер» или «100%».</p>
     <p>На каждом листе выкройки есть контрольный квадрат со стороной 5 см. После печати измерьте его линейкой — если квадрат ровно 5×5 см, масштаб верный и можно вырезать. Если больше или меньше — проверьте настройки принтера и распечатайте снова.</p>
     <p>Припуски на швы на выкройке не обозначены — добавляйте их самостоятельно при раскрое. Стандартный припуск — 0,5 см от контура детали.</p>
-
-    <div class="note" style="margin-top:20px;">
-      <b>Про видеоуроки.</b> Все видео опубликованы на Rutube и открываются в новой вкладке — МК при этом остаётся открытым. Рекомендуем сразу поставить максимальное качество в настройках плеера.<br><br>
-      Если на этапе есть видеоурок — обязательно смотрите его и делайте по нему. Некоторые технические моменты через текст сложно передать так же наглядно, как в видео.
-    </div>
 
     <div class="divider"></div>
 
@@ -865,7 +843,6 @@ if (sessionStorage.getItem('mk_auth') === '1') {
         <a class="toc-item" href="#stage-1"><span class="toc-num">1</span>Раскрой</a>
         <a class="toc-item" href="#stage-2"><span class="toc-num">2</span>Сшивание</a>
         <a class="toc-item" href="#stage-3"><span class="toc-num">3</span>Выворачивание</a>
-        <a class="toc-item" href="#stage-calc" style="border-color:var(--rose);"><span class="toc-num" style="background:var(--rose);">🧮</span>Расчёт гранулята</a>
         <a class="toc-item" href="#stage-4"><span class="toc-num">4</span>Голова и глазки</a>
         <a class="toc-item" href="#stage-5"><span class="toc-num">5</span>Взгляд</a>
         <a class="toc-item" href="#stage-6"><span class="toc-num">6</span>Лицо</a>
@@ -874,9 +851,6 @@ if (sessionStorage.getItem('mk_auth') === '1') {
         <a class="toc-item" href="#stage-9"><span class="toc-num">9</span>Наполнение туловища, подгонка роста и веса</a>
         <a class="toc-item" href="#stage-10"><span class="toc-num">10</span>Пришиваем ручки</a>
         <a class="toc-item" href="#stage-11"><span class="toc-num">11</span>Пришиваем голову</a>
-        <a class="toc-item" href="#bonus-2" style="border-color:#C9A87C;"><span class="toc-num" style="background:#C9A87C;">★</span>Бонус: одежда (ромпер + воротничок)</a>
-        <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:12px 4px 4px;font-weight:600;">Скоро добавим</div>
-        <a class="toc-item" href="#bonus-1" style="border-color:#C9A87C;opacity:.6;pointer-events:none;"><span class="toc-num" style="background:#C9A87C;">★</span>Бонус: другие зверушки</a>
       </div>
     </div>
 
@@ -922,7 +896,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       <h3>Вариант 1 — Машинная строчка <span class="count">быстро и надёжно</span></h3>
       <p>Помните — мы ещё ничего не вырезали, все детали по-прежнему на одном полотне. Выберите с чего начнёте — например, с головы — и начните прострачивать по намеченному контуру этой детали. Сложите ткань так, чтобы лицевые стороны были внутри, и прострочите по линии — без пропусков, ровно по контуру. На каждой детали отмечен свободный край — оставьте его, через него мы будем выворачивать и набивать мишку.</p>
       <p>Длина стежка — 2–2,5 мм. На закруглениях не торопитесь, ведите ткань плавно — именно здесь формируется аккуратный контур лапок и ушек.</p>
-      <p>Когда все детали прострочены — вырезайте с припуском 0,5 см от строчки.</p>
+      <p>Когда все детали прострочены — вырезайте с припуском 0,5 см от строчки. На самых крутых изгибах сделайте маленькие надсечки — они не дадут ткани стягиваться при выворачивании. Не пропускайте этот шаг, он важнее чем кажется.</p>
       <div class="photo-slot"><img src="stage2_mashinaya_strochka.jpg" alt="Машинная строчка" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
     </div>
 
@@ -931,7 +905,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       <p>Используйте шов «назад иголку» (backstitch) — он прочный, аккуратный и отлично держит форму. Принцип простой: выведите иглу вперёд, сделайте стежок назад, затем снова вперёд — каждый следующий стежок перекрывает предыдущий. Старайтесь держать стежки одинаковой длины, около 3–4 мм.</p>
       <p>Вырезайте с припуском 0,5 см после того как всё прошито.</p>
       <p>На видео ниже показываю шов подробнее — посмотрите прежде чем начать, будет проще.</p>
-      <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: ручной шов «назад иголку» — <a href="https://rutube.ru/video/private/dfaa0c7f66f09ba9c82d7ea95f29d15e/?p=-Dm3CCwGjPDqeEQL5mnVrQ" target="_blank">смотреть</a></div></div>
+      <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: ручной шов «назад иголку» — <a href="#">смотреть</a></div></div>
     </div>
 
     <div class="quote">Руки, которые его ждали, теперь создают его снова. Только теперь — из ткани и любви.</div>
@@ -954,41 +928,9 @@ if (sessionStorage.getItem('mk_auth') === '1') {
     <p>Если есть желание — пройдитесь по деталям паром. Это не обязательно, но ткань станет мягче и набивать будет заметно легче.</p>
     <p>Когда все детали вывернуты и расправлены — можно переходить к самому важному шагу.</p>
 
-    <div class="warm"><b>Кстати, как вы?</b> Всё получается? Если на каком-то этапе что-то пошло не так — не переживайте, это нормально. Напишите нам, разберёмся вместе </div>
+    <div class="warm"><b>Кстати, как вы?</b> Всё получается? Если на каком-то этапе что-то пошло не так — не переживайте, это нормально. Напишите мне, разберёмся вместе </div>
 
     <div class="quote">Если что-то пошло не идеально — ничего. Любовь тоже никогда не идёт по плану. И всё равно получается прекрасным.</div>
-
-    <a class="back-to-toc" href="#toc">↑ К содержанию</a>
-
-    <!-- ═══ ИНДИВИДУАЛЬНЫЙ РАСЧЁТ ГРАНУЛЯТА ═══ -->
-    <div class="stage" id="stage-calc">
-      <span class="stage-num" style="background:var(--rose);">🧮</span>
-      <div class="stage-titles">
-        <h2>Индивидуальный расчёт гранулята</h2>
-        <div class="tagline">Ваши цифры — под конкретного малыша</div>
-      </div>
-    </div>
-
-    <p>Вот он — момент когда мишка начинает обретать вес вашего малыша. Гранулят распределяется по деталям не поровну — у каждой своя норма. Ориентируйтесь на таблицу ниже: она составлена под <span class="hl-name" id="out-name-1">вашего малыша</span>. Логика простая: сначала наполняете голову, затем конечности, взвешиваете всё вместе — и остаток гранулята досыпаете в туловище до нужного веса. Расчёт уже учитывает вес ткани и синтепуха — поэтому гранулята может понадобиться чуть меньше, чем точный вес малыша. Это нормально, взвешивание на этапе туловища всё покажет.</p>
-
-    <div class="pers-table">
-      <div class="pers-table-head">
-        <span>Распределение гранулята</span>
-        <div style="font-size:11px;color:var(--muted);margin-top:4px;font-weight:400;">
-          Вес малыша: <b id="out-weight-actual">—</b> · Расчётный объём гранулята: <b id="out-total">—</b>
-        </div>
-      </div>
-      <div class="pers-row"><span class="lbl">Голова</span><span class="val" id="out-head">—</span></div>
-      <div class="pers-row"><span class="lbl">Одна рука</span><span class="val" id="out-arm">—</span></div>
-      <div class="pers-row"><span class="lbl">Обе руки</span><span class="val" id="out-arms">—</span></div>
-      <div class="pers-row"><span class="lbl">Одна нога</span><span class="val" id="out-leg">—</span></div>
-      <div class="pers-row"><span class="lbl">Обе ноги</span><span class="val" id="out-legs">—</span></div>
-      <div class="pers-row total-row"><span class="lbl">Конечности + голова</span><span class="val" id="out-limbs-total">—</span></div>
-      <div class="pers-row body-row"><span class="lbl">Туловище — остаток</span><span class="val" id="out-body">—</span></div>
-    </div>
-    <div style="font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6;">
-      Расчёт приблизительный — уже учитывает вес ткани и синтепуха. Итоговое количество гранулята может варьироваться в зависимости от плотности набивки синтепухом. Точный вес всегда проверяйте на весах при сборке туловища.
-    </div>
 
     <a class="back-to-toc" href="#toc">↑ К содержанию</a>
 
@@ -1005,6 +947,28 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       <span class="stage-badge-label">Сопровождение этапа</span>
       <span class="stage-badge badge-video">▶ Видеоурок</span>
     </div>
+    <div class="stage-badges" style="margin-top:4px;">
+      <span class="stage-badge-label">Понадобится</span>
+      <span class="stage-badge" style="background:var(--cream);border:1px solid var(--border);color:var(--choco-l);">Шило</span>
+      <span class="stage-badge" style="background:var(--cream);border:1px solid var(--border);color:var(--choco-l);">Глазки</span>
+      <span class="stage-badge" style="background:var(--cream);border:1px solid var(--border);color:var(--choco-l);">Синтепух</span>
+      <span class="stage-badge" style="background:var(--cream);border:1px solid var(--border);color:var(--choco-l);">Гранулят</span>
+    </div> Не торопитесь здесь, этот этап требует внимания и чуть больше времени. Я бы рекомендовала выделить на это не меньше часа — если его нет, можно вернуться позже.</p>
+    <p>Гранулят распределяется по деталям не поровну — у каждой своя норма. Ориентируйтесь на таблицу ниже: она составлена под <span class="hl-name" id="out-name-1">вашего малыша</span>. Логика простая: сначала наполняете голову, затем конечности, взвешиваете всё вместе — и остаток гранулята досыпаете в туловище до нужного веса. Расчёт уже учитывает вес ткани и синтепуха — поэтому гранулята может понадобиться чуть меньше, чем точный вес малыша. Это нормально, взвешивание на этапе туловища всё покажет.</p>
+
+    <div class="pers-table">
+      <div class="pers-table-head">
+        <span>Распределение гранулята</span>
+        <span style="font-size:12px;color:var(--muted);">Итого: <b id="out-total">—</b></span>
+      </div>
+      <div class="pers-row"><span class="lbl">Голова</span><span class="val" id="out-head">—</span></div>
+      <div class="pers-row"><span class="lbl">Одна рука</span><span class="val" id="out-arm">—</span></div>
+      <div class="pers-row"><span class="lbl">Обе руки</span><span class="val" id="out-arms">—</span></div>
+      <div class="pers-row"><span class="lbl">Одна нога</span><span class="val" id="out-leg">—</span></div>
+      <div class="pers-row"><span class="lbl">Обе ноги</span><span class="val" id="out-legs">—</span></div>
+      <div class="pers-row total-row"><span class="lbl">Конечности + голова</span><span class="val" id="out-limbs-total">—</span></div>
+      <div class="pers-row body-row"><span class="lbl">Туловище — остаток</span><span class="val" id="out-body">—</span></div>
+    </div>
 
 
 
@@ -1014,12 +978,12 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       <p>Положите голову на стол и определите места для глазок — симметрично. Нужные точки уже отмечены на выкройке, которую мы вам дали — ориентируйтесь на них. Шилом аккуратно проткните насквозь обе толщи ткани. Вставьте пластиковые глазки на безопасном креплении и с обратной стороны плотно зафиксируйте колпачком. Убедитесь что глазки сидят ровно и симметрично — потом исправить уже не получится.</p>
       <div class="photo-slot"><img src="stage4_glazki_ustanovka.jpg" alt="Установка глазков" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
       <div class="tip">Если хотите вышить глазки вручную — это тоже возможно и не менее красиво. На ваше усмотрение.</div>
-      <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: установка глазков — <a href="https://rutube.ru/video/private/04242cbe8a0ac03aa83b0a7c19a51fc7/?p=_T2oeoupxIynmNwNabULmQ" target="_blank">смотреть</a></div></div>
+      <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: установка глазков — <a href="#">смотреть</a></div></div>
     </div>
 
     <div class="sub-section">
       <h3>Голова</h3>
-      <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: набивка и моделирование головы — <a href="https://rutube.ru/video/private/04242cbe8a0ac03aa83b0a7c19a51fc7/?p=_T2oeoupxIynmNwNabULmQ" target="_blank">смотреть</a></div></div>
+      <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: набивка и моделирование головы — <a href="#">смотреть</a></div></div>
       <p>Наполните голову синтепухом примерно на треть. Особое внимание уделите мордочке и носику — пальцами проталкивайте наполнитель в самые дальние уголки, не оставляйте пустот.</p>
       <p>Затем аккуратно засыпьте <span class="hl" id="out-head-text">—</span> гранулята. Сверху плотно утрамбуйте синтепухом. Готовая голова должна быть твёрдой и почти не проминаться при нажатии.</p>
       <p>На этом этапе также моделируем мордочку — добавляем объёмы в щёчки, затылок, делаем по своему вкусу и усмотрению. При вертикальном положении головы гранулят не должен высыпаться, всё плотно, без пустот.</p>
@@ -1043,8 +1007,12 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       <span class="stage-badge badge-video">▶ Видеоурок</span>
       <span class="stage-badge badge-schema"> Схема</span>
     </div>
-
-    <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: утяжка и бровки — <a href="https://rutube.ru/video/private/a17f7fa654b64eb2a495d6d4828e0c22/?r=wd&p=WkPimEKymYggvTqrvx84ZQ" target="_blank">смотреть</a></div></div>
+    <div class="stage-badges" style="margin-top:4px;">
+      <span class="stage-badge-label">Понадобится</span>
+      <span class="stage-badge" style="background:var(--cream);border:1px solid var(--border);color:var(--choco-l);">Цыганская игла</span>
+      <span class="stage-badge" style="background:var(--cream);border:1px solid var(--border);color:var(--choco-l);">Капроновая нить</span>
+      <span class="stage-badge" style="background:var(--cream);border:1px solid var(--border);color:var(--choco-l);">Маркер</span>
+    </div>
 
     <p>Нам понадобится капроновая нить и длинная толстая игла — с ней работать значительно удобнее.</p>
 
@@ -1059,6 +1027,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
     <div class="blue-section">
       <h3>Бровки</h3>
       <p>Сразу после утяжки, не убирая натяжения, формируем бровки. На схеме ниже вы видите как форма бровок меняет выражение мишки — выберите то, что откликается вам. Можно заранее наметить бровки исчезающим маркером — так будет проще вышить ровно.</p>
+      <div class="note" style="margin:10px 0;">Если у вас нет тёмной капроновой нити — бровки можно вышить нитью «Ирис» той же, что используете для носика. Капроновая нить для бровок не обязательна. Если вы стягивали глазки капроновой нитью в цвет ткани — просто возьмите для бровок «Ирис».</div>
       <div class="taste-block">
         <div class="taste-label">Ваш вкус</div>
         <div class="taste-text">Форма бровок — только ваш выбор. Домиком, дугой, ближе к глазам или пошире — каждый вариант меняет взгляд мишки по-своему: где-то он выйдет задумчивым, где-то радостным. Ниже — примеры для вдохновения, но правильный ответ один: тот, что откликается именно вам.</div>
@@ -1079,10 +1048,10 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       <p>Завяжите узелок и введите иглу с нитью в вертикальный шов — примерно в 2–3 см от места, где было отверстие. Проведите иглу насквозь через голову и выведите её с противоположной стороны того же шва, на таком же расстоянии от отверстия.</p>
       <p>Теперь аккуратно сожмите голову руками по бокам и одновременно потяните нить — она должна натянуться и слегка «перетянуть» голову, делая её круглее. Не отпуская натяжения, проложите ещё 4–5 стежков в том же месте — это закрепит нужную форму.</p>
       <p>Завяжите несколько узелков, чтобы стяжка держалась крепко. Если нити осталось немного — можно добавить ещё пару стежков по голове без узелков, это не помешает. Обрежьте нить.</p>
-      <div class="video-block"><div class="video-icon">▶</div><div>Смотрите видео — так будет понятнее — <a href="https://rutube.ru/video/private/a17f7fa654b64eb2a495d6d4828e0c22/?r=wd&p=WkPimEKymYggvTqrvx84ZQ" target="_blank">смотреть</a></div></div>
+      <div class="video-block"><div class="video-icon">▶</div><div>Смотрите видео — так будет понятнее — <a href="#">смотреть</a></div></div>
     </div>
 
-    <div class="warm">Выдыхайте — объёмный этап позади. <b>Как вы?</b> Мишка уже начинает напоминать того самого малыша?</div>
+    <div class="warm">Выдыхайте — самый объёмный этап позади. <b>Как вы?</b> Мишка уже начинает напоминать того самого малыша?</div>
 
     <a class="back-to-toc" href="#toc">↑ К содержанию</a>
 
@@ -1115,7 +1084,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
 
       <p>Когда закончите — спрячьте кончик внутрь головы через ближайший шов.</p>
       <p>На видео ниже покажу как это выглядит в процессе и в готовом виде.</p>
-      <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: вышивка носика в процессе — <a href="https://rutube.ru/video/private/b7e9621923d75fb773c901627a289392/?r=wd&p=tcoAtePz5WpiSq7725mpGg" target="_blank">смотреть</a></div></div>
+      <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: вышивка носика в процессе — <a href="#">смотреть</a></div></div>
       <div class="quote" style="border-left-color:var(--rose);">Посмотрите на мордочку. Он уже смотрит на вас, правда?</div>
     </div>
 
@@ -1131,7 +1100,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       </div>
 
       <p>Пришейте ушки ручным швом капроновой нитью по кругу, вставляя поочерёдно иглу в ушко и в голову. Пройдитесь дважды для надёжности. Закрепите нить узелком, выведите иглу чуть в стороне и спрячьте кончик внутри.</p>
-      <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: как пришивать ушки — <a href="https://rutube.ru/video/private/28677b3ff3bebc67768ffe91a399e6bb/?r=wd&p=FOD4uNO0uGTJBrtwdVpmmw" target="_blank">смотреть</a></div></div>
+      <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: как пришивать ушки — <a href="#">смотреть</a></div></div>
       <div class="photo-slot"><img src="stage6_ushki_gotovye.jpg" alt="Готовые пришитые ушки" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
     </div>
 
@@ -1156,6 +1125,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       <p>Начните с небольшого количества синтепуха — плотно заполните самый кончик, чтобы он не остался пустым. На схеме ниже показаны слои заполнения синтепуха и гранулята.</p>
       <p>Затем добавьте <span class="hl" id="out-arm-half1">—</span> гранулята, сверху снова слой синтепуха и хорошо утрамбуйте. Досыпьте ещё <span class="hl" id="out-arm-half2">—</span> — итого <span class="hl" id="out-arm-total">—</span> на каждую ручку.</p>
       <p>Завершите синтепухом, оставив около 2–3 см свободным от края. Закройте отверстие машинной строчкой или потайным швом вручную по схеме ниже. Повторите для второй ручки.</p>
+      <div class="photo-slot"><img src="ruki.jpg" alt="Наполненные ручки" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
     </div>
 
     <div class="sub-section">
@@ -1164,7 +1134,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       <p>Добавьте <span class="hl" id="out-leg-half1">—</span> гранулята, затем снова синтепух и ещё <span class="hl" id="out-leg-half2">—</span> — итого <span class="hl" id="out-leg-total">—</span> на каждую ножку.</p>
       <p>Завершите синтепухом, оставив 2–3 см до края. Зашейте отверстие по схеме ниже и повторите для второй ножки.</p>
       <div class="photo-slot"><img src="stage7_nozhka_shema.jpg" alt="Схема зашивания ножки" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
-      <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: наполнение ручек и ножек — <a href="https://rutube.ru/video/private/55cfa918d05c934091a0748842a5ea45/?p=x1oCR22IXmapNb9h34O1RA" target="_blank">смотреть</a></div></div>
+      <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: наполнение ручек и ножек — <a href="#">смотреть</a></div></div>
     </div>
 
     <a class="back-to-toc" href="#toc">↑ К содержанию</a>
@@ -1187,7 +1157,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
     <p>Вставьте ножки в нижнее отверстие (широкое) лапками внутрь и выровняйте их по высоте — это важно, иначе мишка будет «прихрамывать». Закрепите булавками или сметайте вручную чтобы ничего не сдвинулось. Прострочите на машинке или прошейте крепким ручным швом «назад иголку».</p>
     <div class="photo-slot"><img src="stage8_nozhki_pered_proshivaniem.jpg" alt="Ножки перед прошиванием" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
     <p>Выверните туловище через узкое отверстие на лицевую сторону — ножки уже на месте.</p>
-    <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: вшивание ножек в туловище — <a href="https://rutube.ru/video/private/48033dac102700c3a632bb1c24e2d98f/?p=FidQYRrBEVjgWA5lJIEiKA" target="_blank">смотреть</a></div></div>
+    <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: вшивание ножек в туловище — <a href="#">смотреть</a></div></div>
 
     <div class="quote">Ловите, а то убежит!</div>
 
@@ -1206,8 +1176,13 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       <span class="stage-badge-label">Сопровождение этапа</span>
       <span class="stage-badge badge-video">▶ Видеоурок</span>
     </div>
-
-    <div class="quote">Помните, как впервые взяли его на руки и удивились — какой лёгкий? Сейчас вы воссоздаёте именно этот момент.</div>
+    <div class="stage-badges" style="margin-top:4px;">
+      <span class="stage-badge-label">Понадобится</span>
+      <span class="stage-badge" style="background:var(--cream);border:1px solid var(--border);color:var(--choco-l);">Кухонные весы</span>
+      <span class="stage-badge" style="background:var(--cream);border:1px solid var(--border);color:var(--choco-l);">Сантиметровая лента</span>
+      <span class="stage-badge" style="background:var(--cream);border:1px solid var(--border);color:var(--choco-l);">Гранулят</span>
+      <span class="stage-badge" style="background:var(--cream);border:1px solid var(--border);color:var(--choco-l);">Синтепух</span>
+    </div> Сейчас вы воссоздаёте именно этот момент.</div>
 
     <h3>Наполнение туловища</h3>
     <p><b>Шаг 1.</b> Засыпьте первые <span class="hl" id="out-body-step1">—</span> гранулята. Утрамбуйте синтепухом, плотно забивая уголки и нижнюю часть туловища.</p>
@@ -1222,7 +1197,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
     <div class="blue-section">
       <h3>Подгоняем рост</h3>
       <p>Положите на стол сантиметровую ленту, уложите голову у самого начала, а вплотную к ней — туловище. Подогните свободный край туловища до тех пор, пока длина не совпадёт с ростом <span class="hl" id="out-height-target">— см</span>. Имейте в виду: когда будете пришивать голову, шов заберёт ещё около 1 см — это нормально, учитывайте при замере.</p>
-      <div class="video-block"><div class="video-icon">▶</div><div>Всё показано в видео — <a href="https://rutube.ru/video/private/3f27cc88ba24a2c8edfbe7350c5de222/?p=86_Pn-kHwKnlVivS98sXcg" target="_blank">смотреть</a></div></div>
+      <div class="video-block"><div class="video-icon">▶</div><div>Всё показано в видео — <a href="#">смотреть</a></div></div>
     </div>
 
     <div class="blue-section">
@@ -1252,7 +1227,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
     <p>Возьмите капроновую нить с узелком, длиной около 1 метра. Пришейте первую ручку сверху по верхнему краю туловища. Той же нитью переходите ко второй ручке по горловине, слегка стягивая её — но не сильно, голова должна сесть красиво. Прошейте вторую ручку так же сверху. По второму краю горловины вернитесь к первой ручке и закрепите её с другой стороны.</p>
     <p>Теперь возьмите новую нить с узелком. Поднимите лапку и вставьте иголку в подмышку — так спрячется узелок. Выведите иглу на боковом шве ручки сверху. Делайте стежки вниз, чередуя — стежок в тело, стежок в ручку — затягивая нить. Опускайтесь вниз на 3–4 см. Затем введите иглу в тело и выведите её наверх у начала ручки, плотно затяните нить и сделайте узелок. Пройдитесь швом под подмышкой по всей ширине — стежок в ручку, стежок в тело. На другом конце вернитесь в исходное положение ручки и пройдите по боковому шву с другой стороны. Затягивайте нить по мере шитья. Сверху сделайте узелок. Повторите для второй ручки.</p>
     <div class="tip">Этот этап гораздо проще понять на видео — рекомендую посмотреть перед тем как начать.</div>
-    <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: пришивание ручек — <a href="https://rutube.ru/video/private/52e2defeb16cf638ddfe8df1f89dc4f7/?p=lPsjJGkxUw11appDQX194g" target="_blank">смотреть</a></div></div>
+    <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: пришивание ручек — <a href="#">смотреть</a></div></div>
     <div class="photo-slot"><img src="stage10_ruchki_gotovye.jpg" alt="Готовые пришитые ручки" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
     <p>После этого ещё раз проверьте рост мишки — всё ли совпадает с задуманным.</p>
 
@@ -1274,7 +1249,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
     </div>
 
     <p>Используйте плотную капроновую нить или сложите обычную в 4–6 слоёв. Начинайте с затылка, от центра, и двигайтесь по кругу — очень плотно стягивая голову и туловище между собой. Пройдитесь 2–3 полных круга, периодически закрепляя нить узелками по ходу. Когда голова надёжно зафиксирована — спрячьте нить внутри.</p>
-    <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: пришивание головы — <a href="https://rutube.ru/video/private/22fae0d48b85611ee40f947947c4acbc/?p=xbb--HW7CQZsdgsPg_STlg" target="_blank">смотреть</a></div></div>
+    <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: пришивание головы — <a href="#">смотреть</a></div></div>
     <div class="photo-slot"><img src="stage11_mishka_gotovy.jpg" alt="Готовый мишка" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
 
     <a class="back-to-toc" href="#toc">↑ К содержанию</a>
@@ -1289,93 +1264,10 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       <p style="margin-top:20px;">И пожалуйста… покажите мне вашего малыша. Для меня нет большей радости, чем видеть, сколько любви рождается в ваших руках. </p>
     </div>
 
-    <!-- ═══ БОНУС: ОДЕЖДА ДЛЯ МИШКИ ═══ -->
-    <div class="stage" id="bonus-2" style="margin-top:40px;">
-      <span class="stage-num" style="background:#C9A87C;">★</span>
-      <div class="stage-titles">
-        <h2>Бонус: одежда для мишки</h2>
-        <div class="tagline">Ромпер + воротничок — сшитый специально под вашего мишку</div>
-      </div>
-    </div>
-
-    <div class="stage-badges">
-      <span class="stage-badge-label">Сопровождение этапа</span>
-      <span class="stage-badge badge-video">▶ Видеоурок</span>
-    </div>
-
-    <p>Мишка сшит. Но, может быть, ему чего-то не хватает? Этот бонусный урок — для тех, кто хочет одеть своего малыша в крошечный костюмчик, сшитый специально под него.</p>
-
-    <div class="blue-section">
-      <h3>Выкройка одежды</h3>
-      <p>Выкройка ромпера и воротничка — в отдельном файле.</p>
-      <a href="https://disk.yandex.ru/i/ROntX3k5ri7q4w" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:white;border:1.5px solid var(--border-b);border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600;color:#2A5A78;text-decoration:none;margin-top:10px;">↓ Скачать выкройку одежды</a>
-    </div>
-
-    <div class="sub-section">
-      <h3>Ромпер</h3>
-
-      <h4 style="font-size:14px;font-weight:600;color:var(--choco);margin:16px 0 6px;">Этап 1. Раскрой</h4>
-      <p>Раскроите ткань по выкройке из материалов мастер-класса. Для удобства рекомендую сложить ткань пополам — тогда одна сторона ромпера получится со сгибом, и останется прошить только один боковой шов. Если раскроили деталь без сгиба — ничего страшного, просто получится два боковых шва вместо одного.</p>
-
-      <h4 style="font-size:14px;font-weight:600;color:var(--choco);margin:16px 0 6px;">Этап 2. Боковые швы</h4>
-      <p>Проложите строчку по боковому шву — на машинке или вручную тем же швом, что мы изучали в основном МК.</p>
-
-      <h4 style="font-size:14px;font-weight:600;color:var(--choco);margin:16px 0 6px;">Этап 3. Обработка боковых срезов</h4>
-      <p>Для аккуратности обработайте припуски оверлоком или строчкой «зигзаг». Если такой возможности нет — этот этап можно пропустить. На прочность изделия это не влияет, только на вид изнанки.</p>
-
-      <h4 style="font-size:14px;font-weight:600;color:var(--choco);margin:16px 0 6px;">Этап 4. Нижний край</h4>
-      <p>Подверните нижний край дважды — примерно на 0,5–1 см. Зафиксируйте булавками или намёткой и проложите строчку по всей окружности.</p>
-
-      <h4 style="font-size:14px;font-weight:600;color:var(--choco);margin:16px 0 6px;">Этап 5. Проймы — места для ручек</h4>
-      <p>Каждый срез подворачиваем дважды. Удобнее начинать с верхней вершины выреза. Из-за косого направления ткань может немного перекручиваться — это нормально, просто расправляйте по мере работы и фиксируйте булавками. Проложите строчку максимально близко к краю. Повторите для второй стороны.</p>
-
-      <h4 style="font-size:14px;font-weight:600;color:var(--choco);margin:16px 0 6px;">Этап 6. Верхний край</h4>
-      <p>Также двойной подгиб — но строчку прокладывайте максимально близко к внутреннему краю подгиба. Внутри должен остаться небольшой тоннель — позже сюда будет продеваться ленточка. Не забудьте сделать закрепки в начале и конце строчки.</p>
-
-      <h4 style="font-size:14px;font-weight:600;color:var(--choco);margin:16px 0 6px;">Этап 7. Ножки</h4>
-      <p>Разложите ромпер ровно, расправьте все швы. Приложите выкройку и перенесите на ткань линии шагового шва — ничего не вымеряем, просто прикладываем и отмечаем. Проложите строчку по отмеченным линиям, затем аккуратно вырежьте внутренний треугольник, оставляя припуск около 5 мм. При желании обработайте срез зигзагом.</p>
-
-      <h4 style="font-size:14px;font-weight:600;color:var(--choco);margin:16px 0 6px;">Этап 8. Финальная обработка</h4>
-      <p>Уберите все лишние ниточки. Хорошо отпарьте или прогладьте ромпер — это уберёт следы терморучки и расправит все швы. Посмотрите на него. Маленький, аккуратный, живой.</p>
-
-      <h4 style="font-size:14px;font-weight:600;color:var(--choco);margin:16px 0 6px;">Этап 9. Надеваем</h4>
-      <p>Сначала наденьте ромпер на мишку. Возьмите ленту, опалите её концы чтобы не осыпались. Цыганской иглой проденьте ленту через верхнюю кулиску ромпера. Затяните по размеру и завяжите бантик. Расправьте складочки.</p>
-    </div>
-
-    <div class="sub-section">
-      <h3>Воротничок</h3>
-
-      <h4 style="font-size:14px;font-weight:600;color:var(--choco);margin:16px 0 6px;">Этап 1. Раскрой</h4>
-      <p>Вырежьте полоску ткани длиной 80–90 см и шириной 10–15 см. Чем шире полоска — тем более объёмным получится воротничок. Здесь всё на ваш вкус.</p>
-
-      <h4 style="font-size:14px;font-weight:600;color:var(--choco);margin:16px 0 6px;">Этап 2. Стачивание</h4>
-      <p>Сложите полоску вдоль пополам и проложите строчку примерно 5 мм от края.</p>
-
-      <h4 style="font-size:14px;font-weight:600;color:var(--choco);margin:16px 0 6px;">Этап 3. Обработка края</h4>
-      <p>Классический вариант — рваный край. Ткань не разрезается ножницами, а аккуратно разрывается по долевой нити. После этого уберите свободные ниточки — получится мягкая бахрома, которая выглядит очень живо.</p>
-
-      <div class="blue-section" style="margin:12px 0;">
-        <h3 style="margin-bottom:8px;">Ваш вкус</h3>
-        <p style="margin-bottom:6px;">Все варианты одинаково хороши — выбирайте тот, что откликается:</p>
-        <ul style="margin:0;padding-left:18px;line-height:1.9;">
-          <li>Рваный край — мягкий и природный</li>
-          <li>Оверлок или зигзаг — аккуратный и чёткий</li>
-          <li>Закрытый подгиб — самый деликатный вариант</li>
-        </ul>
-      </div>
-
-      <h4 style="font-size:14px;font-weight:600;color:var(--choco);margin:16px 0 6px;">Финал</h4>
-      <p>Проденьте ленточку в воротничок и завяжите на шее мишки.</p>
-      <p style="font-style:italic;color:var(--rose);">Вот теперь — он совсем готов. 🤍</p>
-    </div>
-
-    <div class="video-block"><div class="video-icon">▶</div><div>Видео-урок: одежда для мишки (ромпер + воротничок) — <a href="https://rutube.ru/video/private/52dcf27c94708df2b118a6e992c32073/?r=wd&p=sc5KVuALHWrELQPm61ieAg" target="_blank">смотреть</a></div></div>
-
     <div class="footer">Марковка — МК по мишке<span id="out-footer"></span></div>
-    <div style="text-align:center;font-size:11px;color:var(--muted);padding:10px 24px 24px;line-height:1.8;">
+    <div style="text-align:center;font-size:11px;color:var(--muted);padding:10px 24px 24px;line-height:1.6;">
       © Марковка · Все права защищены<br>
-      Копирование материалов строго запрещено · Только для личного использования<br>
-      <a href="oferta.html" target="_blank" style="color:var(--muted);text-decoration:underline;text-underline-offset:3px;">Публичная оферта</a>
+      Копирование материалов строго запрещено · Только для личного использования
     </div>
   </div>
 </div>
@@ -1467,24 +1359,15 @@ function generate() {
   }
 
   const c = calcAmounts(weight, height);
-  const armHalf = round25(c.arm / 2);
-  const legHalf = round25(c.leg / 2);
+  const armHalf1 = round25(c.arm / 2);
+  const armHalf2 = c.arm - armHalf1;
+  const legHalf1 = round25(c.leg / 2);
+  const legHalf2 = c.leg - legHalf1;
 
   // Badge
   document.getElementById('out-badge-name').textContent = name;
   document.getElementById('out-badge-stats').textContent = weight + ' г · ' + height + ' см';
   document.getElementById('out-badge-size').textContent = c.patternLabel;
-
-  // Ссылки на выкройки
-  const patternLinks = {
-    'S': 'https://disk.yandex.ru/i/QS0AS1rjxpF68w',
-    'M': 'https://disk.yandex.ru/i/sWkPsTVfLzjgJA',
-    'L': 'https://disk.yandex.ru/i/HnA2JH2gl9p-qg'
-  };
-  const patternRanges = { 'S': '40–48 см', 'M': '49–53 см', 'L': '54–60 см' };
-  document.getElementById('out-pattern-label').textContent = c.patternSize + ' · ' + patternRanges[c.patternSize];
-  document.getElementById('btn-pattern-dl').href = patternLinks[c.patternSize];
-  document.getElementById('btn-pattern-dl').textContent = '⬇ Скачать выкройку ' + c.patternSize;
 
   // Baby greeting - age calculation
   const greetEl = document.getElementById('baby-greeting');
@@ -1521,14 +1404,13 @@ function generate() {
   document.getElementById('out-limbs-total').textContent = fmt(c.limbsTotal);
   document.getElementById('out-body').textContent      = fmt(c.body);
   document.getElementById('out-total').textContent     = fmt(c.total);
-  document.getElementById('out-weight-actual').textContent = fmt(weight);
 
   // Inline
-  document.getElementById('out-arm-half1').textContent  = fmt(armHalf);
-  document.getElementById('out-arm-half2').textContent  = fmt(armHalf);
+  document.getElementById('out-arm-half1').textContent  = fmt(armHalf1);
+  document.getElementById('out-arm-half2').textContent  = fmt(armHalf2);
   document.getElementById('out-arm-total').textContent  = fmt(c.arm);
-  document.getElementById('out-leg-half1').textContent  = fmt(legHalf);
-  document.getElementById('out-leg-half2').textContent  = fmt(legHalf);
+  document.getElementById('out-leg-half1').textContent  = fmt(legHalf1);
+  document.getElementById('out-leg-half2').textContent  = fmt(legHalf2);
   document.getElementById('out-leg-total').textContent  = fmt(c.leg);
   document.getElementById('out-head-text').textContent   = fmt(c.head);
   document.getElementById('out-body-step1').textContent  = fmt(c.bodyStep1);
