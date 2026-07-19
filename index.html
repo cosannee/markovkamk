@@ -105,7 +105,7 @@
   .collapsible-toggle { font-size:20px; color:var(--muted); transition:transform .25s; margin-top:38px; }
   .collapsible-header.open .collapsible-toggle { transform:rotate(180deg); }
   .collapsible-body { overflow:hidden; transition:max-height .35s ease; max-height:0; }
-  .collapsible-body.open { max-height:2000px; }
+  .collapsible-body.open { max-height:none; }
 
   /* Stage header */
   .stage { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; margin-top: 32px; }
@@ -683,9 +683,9 @@ if (sessionStorage.getItem('mk_auth') === '1') {
 
     <!-- ═══ КНОПКИ СКАЧИВАНИЯ ═══ -->
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:24px;">
-      <button class="btn-print" onclick="window.print()" style="width:100%;text-align:center;">Сохранить МК в PDF</button>
-      <a class="btn-print" id="btn-pattern-dl" href="#" target="_blank" style="display:block;text-align:center;text-decoration:none;" id="out-pattern-hint">Скачать выкройку <span id="out-pattern-label"></span></a>
-      <a class="btn-print" href="https://disk.yandex.ru/i/ROntX3k5ri7q4w" target="_blank" style="display:block;text-align:center;text-decoration:none;">Скачать выкройку одежды</a>
+      <button class="btn-print" onclick="window.print()" style="width:100%;text-align:center;">&#8595;&#xFE0E; Сохранить МК в PDF</button>
+      <a class="btn-print" id="btn-pattern-dl" href="#" target="_blank" style="display:block;text-align:center;text-decoration:none;" id="out-pattern-hint">&#8595;&#xFE0E; Скачать выкройку <span id="out-pattern-label"></span></a>
+      <a class="btn-print" href="https://disk.yandex.ru/i/ROntX3k5ri7q4w" target="_blank" style="display:block;text-align:center;text-decoration:none;">&#8595;&#xFE0E; Скачать выкройку одежды</a>
     </div>
 
     <!-- ═══ ПРИВЕТСТВИЕ МАЛЫШУ ═══ -->
@@ -725,7 +725,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
     <div class="collapsible-wrap">
       <div class="collapsible-header" onclick="toggleCollapsible(this)">
         <h2>Словарик шитья</h2>
-        <span class="collapsible-toggle">▾</span>
+        <span class="collapsible-toggle">&#9660;&#xFE0E;</span>
       </div>
       <div class="collapsible-body">
         <p style="color:var(--muted);font-size:14px;margin:14px 0 16px;">Если вы шьёте впервые — здесь объяснения терминов, которые встретятся в МК.</p>
@@ -770,7 +770,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
     <div class="collapsible-wrap">
       <div class="collapsible-header" onclick="toggleCollapsible(this)">
         <h2>Список материалов</h2>
-        <span class="collapsible-toggle">▾</span>
+        <span class="collapsible-toggle">&#9660;&#xFE0E;</span>
       </div>
       <div class="collapsible-body">
 
@@ -981,7 +981,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
 
     <div class="stage-badges">
       <span class="stage-badge-label">Сопровождение этапа</span>
-      <span class="stage-badge badge-video">&#9654; Видеоурок</span>
+      <span class="stage-badge badge-video">&#9654;&#xFE0E; Видеоурок</span>
     </div>
 
     <p>Вот он — момент когда мишка начинает обретать форму. Выберите удобный для вас способ.</p>
@@ -1003,7 +1003,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       <p>Используйте шов «назад иголку» (backstitch) — он прочный, аккуратный и отлично держит форму. Принцип простой: выведите иглу вперёд, сделайте стежок назад, затем снова вперёд — каждый следующий стежок перекрывает предыдущий. Старайтесь держать стежки одинаковой длины, около 3–4 мм.</p>
       <p>Вырезайте с припуском 0,5 см после того как всё прошито.</p>
       <p>На видео ниже показываю шов подробнее — посмотрите прежде чем начать, будет проще.</p>
-      <div class="video-block"><div class="video-icon">&#9654;</div><div>Видео-урок: ручной шов «назад иголку» — <a href="https://rutube.ru/video/private/dfaa0c7f66f09ba9c82d7ea95f29d15e/?p=-Dm3CCwGjPDqeEQL5mnVrQ" target="_blank">смотреть</a></div></div>
+      <div class="video-block"><div class="video-icon">&#9654;&#xFE0E;</div><div>Видео-урок: ручной шов «назад иголку» — <a href="https://rutube.ru/video/private/dfaa0c7f66f09ba9c82d7ea95f29d15e/?p=-Dm3CCwGjPDqeEQL5mnVrQ" target="_blank">смотреть</a></div></div>
     </div>
 
     <div class="quote">Руки, которые его ждали, теперь создают его снова. Только теперь — из ткани и любви.</div>
@@ -1075,7 +1075,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
 
     <div class="stage-badges">
       <span class="stage-badge-label">Сопровождение этапа</span>
-      <span class="stage-badge badge-video">&#9654; Видеоурок</span>
+      <span class="stage-badge badge-video">&#9654;&#xFE0E; Видеоурок</span>
     </div>
     <div class="stage-badges" style="margin-top:4px;">
       <span class="stage-badge-label">Понадобится</span>
@@ -1091,12 +1091,12 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       <p>Положите голову на стол и определите места для глазок — симметрично. Нужные точки уже отмечены на выкройке, которую мы вам дали — ориентируйтесь на них. Шилом аккуратно проткните насквозь обе толщи ткани. Вставьте пластиковые глазки на безопасном креплении и с обратной стороны плотно зафиксируйте колпачком. Убедитесь что глазки сидят ровно и симметрично — потом исправить уже не получится.</p>
       <div class="photo-slot"><img src="stage4_glazki_ustanovka.jpg" alt="Установка глазков" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
       <div class="tip">Если хотите вышить глазки вручную — это тоже возможно и не менее красиво. На ваше усмотрение.</div>
-      <div class="video-block"><div class="video-icon">&#9654;</div><div>Видео-урок: установка глазков — <a href="https://rutube.ru/video/private/04242cbe8a0ac03aa83b0a7c19a51fc7/?p=_T2oeoupxIynmNwNabULmQ" target="_blank">смотреть</a></div></div>
+      <div class="video-block"><div class="video-icon">&#9654;&#xFE0E;</div><div>Видео-урок: установка глазков — <a href="https://rutube.ru/video/private/04242cbe8a0ac03aa83b0a7c19a51fc7/?p=_T2oeoupxIynmNwNabULmQ" target="_blank">смотреть</a></div></div>
     </div>
 
     <div class="sub-section">
       <h3>Голова</h3>
-      <div class="video-block"><div class="video-icon">&#9654;</div><div>Видео-урок: набивка и моделирование головы — <a href="https://rutube.ru/video/private/04242cbe8a0ac03aa83b0a7c19a51fc7/?p=_T2oeoupxIynmNwNabULmQ" target="_blank">смотреть</a></div></div>
+      <div class="video-block"><div class="video-icon">&#9654;&#xFE0E;</div><div>Видео-урок: набивка и моделирование головы — <a href="https://rutube.ru/video/private/04242cbe8a0ac03aa83b0a7c19a51fc7/?p=_T2oeoupxIynmNwNabULmQ" target="_blank">смотреть</a></div></div>
       <p>Наполните голову синтепухом примерно на треть. Особое внимание уделите мордочке и носику — пальцами проталкивайте наполнитель в самые дальние уголки, не оставляйте пустот.</p>
       <p>Затем аккуратно засыпьте <span class="hl" id="out-head-text">—</span> гранулята. Сверху плотно утрамбуйте синтепухом. Готовая голова должна быть твёрдой и почти не проминаться при нажатии.</p>
       <p>На этом этапе также моделируем мордочку — добавляем объёмы в щёчки, затылок, делаем по своему вкусу и усмотрению. При вертикальном положении головы гранулят не должен высыпаться, всё плотно, без пустот.</p>
@@ -1117,7 +1117,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
 
     <div class="stage-badges">
       <span class="stage-badge-label">Сопровождение этапа</span>
-      <span class="stage-badge badge-video">&#9654; Видеоурок</span>
+      <span class="stage-badge badge-video">&#9654;&#xFE0E; Видеоурок</span>
       <span class="stage-badge badge-schema"> Схема</span>
     </div>
     <div class="stage-badges" style="margin-top:4px;">
@@ -1127,7 +1127,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       <span class="stage-badge" style="background:var(--cream);border:1px solid var(--border);color:var(--choco-l);">Маркер</span>
     </div>
 
-    <div class="video-block"><div class="video-icon">&#9654;</div><div>Видео-урок: утяжка и бровки — <a href="https://rutube.ru/video/private/a17f7fa654b64eb2a495d6d4828e0c22/?r=wd&p=WkPimEKymYggvTqrvx84ZQ" target="_blank">смотреть</a></div></div>
+    <div class="video-block"><div class="video-icon">&#9654;&#xFE0E;</div><div>Видео-урок: утяжка и бровки — <a href="https://rutube.ru/video/private/a17f7fa654b64eb2a495d6d4828e0c22/?r=wd&p=WkPimEKymYggvTqrvx84ZQ" target="_blank">смотреть</a></div></div>
 
     <p>Нам понадобится капроновая нить и длинная толстая игла — с ней работать значительно удобнее.</p>
 
@@ -1163,7 +1163,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       <p>Завяжите узелок и введите иглу с нитью в вертикальный шов — примерно в 2–3 см от места, где было отверстие. Проведите иглу насквозь через голову и выведите её с противоположной стороны того же шва, на таком же расстоянии от отверстия.</p>
       <p>Теперь аккуратно сожмите голову руками по бокам и одновременно потяните нить — она должна натянуться и слегка «перетянуть» голову, делая её круглее. Не отпуская натяжения, проложите ещё 4–5 стежков в том же месте — это закрепит нужную форму.</p>
       <p>Завяжите несколько узелков, чтобы стяжка держалась крепко. Если нити осталось немного — можно добавить ещё пару стежков по голове без узелков, это не помешает. Обрежьте нить.</p>
-      <div class="video-block"><div class="video-icon">&#9654;</div><div>Смотрите видео — так будет понятнее — <a href="https://rutube.ru/video/private/a17f7fa654b64eb2a495d6d4828e0c22/?r=wd&p=WkPimEKymYggvTqrvx84ZQ" target="_blank">смотреть</a></div></div>
+      <div class="video-block"><div class="video-icon">&#9654;&#xFE0E;</div><div>Смотрите видео — так будет понятнее — <a href="https://rutube.ru/video/private/a17f7fa654b64eb2a495d6d4828e0c22/?r=wd&p=WkPimEKymYggvTqrvx84ZQ" target="_blank">смотреть</a></div></div>
     </div>
 
     <div class="warm">Выдыхайте — объёмный этап позади. <b>Как вы?</b> Мишка уже начинает напоминать того самого малыша?</div>
@@ -1181,7 +1181,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
 
     <div class="stage-badges">
       <span class="stage-badge-label">Сопровождение этапа</span>
-      <span class="stage-badge badge-video">&#9654; Видеоурок</span>
+      <span class="stage-badge badge-video">&#9654;&#xFE0E; Видеоурок</span>
       <span class="stage-badge badge-schema"> Схема</span>
     </div>
 
@@ -1199,7 +1199,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
 
       <p>Когда закончите — спрячьте кончик внутрь головы через ближайший шов.</p>
       <p>На видео ниже покажу как это выглядит в процессе и в готовом виде.</p>
-      <div class="video-block"><div class="video-icon">&#9654;</div><div>Видео-урок: вышивка носика в процессе — <a href="https://rutube.ru/video/private/b7e9621923d75fb773c901627a289392/?r=wd&p=tcoAtePz5WpiSq7725mpGg" target="_blank">смотреть</a></div></div>
+      <div class="video-block"><div class="video-icon">&#9654;&#xFE0E;</div><div>Видео-урок: вышивка носика в процессе — <a href="https://rutube.ru/video/private/b7e9621923d75fb773c901627a289392/?r=wd&p=tcoAtePz5WpiSq7725mpGg" target="_blank">смотреть</a></div></div>
       <div class="quote" style="border-left-color:var(--rose);">Посмотрите на мордочку. Он уже смотрит на вас, правда?</div>
     </div>
 
@@ -1215,7 +1215,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       </div>
 
       <p>Пришейте ушки ручным швом капроновой нитью по кругу, вставляя поочерёдно иглу в ушко и в голову. Пройдитесь дважды для надёжности. Закрепите нить узелком, выведите иглу чуть в стороне и спрячьте кончик внутри.</p>
-      <div class="video-block"><div class="video-icon">&#9654;</div><div>Видео-урок: как пришивать ушки — <a href="https://rutube.ru/video/private/28677b3ff3bebc67768ffe91a399e6bb/?r=wd&p=FOD4uNO0uGTJBrtwdVpmmw" target="_blank">смотреть</a></div></div>
+      <div class="video-block"><div class="video-icon">&#9654;&#xFE0E;</div><div>Видео-урок: как пришивать ушки — <a href="https://rutube.ru/video/private/28677b3ff3bebc67768ffe91a399e6bb/?r=wd&p=FOD4uNO0uGTJBrtwdVpmmw" target="_blank">смотреть</a></div></div>
       <div class="photo-slot"><img src="stage6_ushki_gotovye.jpg" alt="Готовые пришитые ушки" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
     </div>
 
@@ -1231,7 +1231,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
     </div>
     <div class="stage-badges">
       <span class="stage-badge-label">Сопровождение этапа</span>
-      <span class="stage-badge badge-video">&#9654; Видеоурок</span>
+      <span class="stage-badge badge-video">&#9654;&#xFE0E; Видеоурок</span>
       <span class="stage-badge badge-schema"> Схема</span>
     </div>
 
@@ -1249,7 +1249,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       <p>Добавьте <span class="hl" id="out-leg-half1">—</span> гранулята, затем снова синтепух и ещё <span class="hl" id="out-leg-half2">—</span> — итого <span class="hl" id="out-leg-total">—</span> на каждую ножку.</p>
       <p>Завершите синтепухом, оставив 2–3 см до края. Зашейте отверстие по схеме ниже и повторите для второй ножки.</p>
       <div class="photo-slot"><img src="stage7_nozhka_shema.jpg" alt="Схема зашивания ножки" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
-      <div class="video-block"><div class="video-icon">&#9654;</div><div>Видео-урок: наполнение ручек и ножек — <a href="https://rutube.ru/video/private/55cfa918d05c934091a0748842a5ea45/?p=x1oCR22IXmapNb9h34O1RA" target="_blank">смотреть</a></div></div>
+      <div class="video-block"><div class="video-icon">&#9654;&#xFE0E;</div><div>Видео-урок: наполнение ручек и ножек — <a href="https://rutube.ru/video/private/55cfa918d05c934091a0748842a5ea45/?p=x1oCR22IXmapNb9h34O1RA" target="_blank">смотреть</a></div></div>
     </div>
 
     <a class="back-to-toc" href="#toc">↑ К содержанию</a>
@@ -1265,14 +1265,14 @@ if (sessionStorage.getItem('mk_auth') === '1') {
 
     <div class="stage-badges">
       <span class="stage-badge-label">Сопровождение этапа</span>
-      <span class="stage-badge badge-video">&#9654; Видеоурок</span>
+      <span class="stage-badge badge-video">&#9654;&#xFE0E; Видеоурок</span>
     </div>
 
     <p>У туловища два открытых края — сверху (поуже) и снизу (пошире). Снизу будем вшивать ножки. Обратите внимание: туловище сейчас вывернуто на изнанку, лицевая сторона внутри — так и должно быть.</p>
     <p>Вставьте ножки в нижнее отверстие (широкое) лапками внутрь и выровняйте их по высоте — это важно, иначе мишка будет «прихрамывать». Закрепите булавками или сметайте вручную чтобы ничего не сдвинулось. Прострочите на машинке или прошейте крепким ручным швом «назад иголку».</p>
     <div class="photo-slot"><img src="stage8_nozhki_pered_proshivaniem.jpg" alt="Ножки перед прошиванием" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
     <p>Выверните туловище через узкое отверстие на лицевую сторону — ножки уже на месте.</p>
-    <div class="video-block"><div class="video-icon">&#9654;</div><div>Видео-урок: вшивание ножек в туловище — <a href="https://rutube.ru/video/private/48033dac102700c3a632bb1c24e2d98f/?p=FidQYRrBEVjgWA5lJIEiKA" target="_blank">смотреть</a></div></div>
+    <div class="video-block"><div class="video-icon">&#9654;&#xFE0E;</div><div>Видео-урок: вшивание ножек в туловище — <a href="https://rutube.ru/video/private/48033dac102700c3a632bb1c24e2d98f/?p=FidQYRrBEVjgWA5lJIEiKA" target="_blank">смотреть</a></div></div>
 
     <div class="quote">Ловите, а то убежит!</div>
 
@@ -1289,7 +1289,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
 
     <div class="stage-badges">
       <span class="stage-badge-label">Сопровождение этапа</span>
-      <span class="stage-badge badge-video">&#9654; Видеоурок</span>
+      <span class="stage-badge badge-video">&#9654;&#xFE0E; Видеоурок</span>
     </div>
     <div class="stage-badges" style="margin-top:4px;">
       <span class="stage-badge-label">Понадобится</span>
@@ -1314,7 +1314,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
     <div class="blue-section">
       <h3>Подгоняем рост</h3>
       <p>Положите на стол сантиметровую ленту, уложите голову у самого начала, а вплотную к ней — туловище. Подогните свободный край туловища до тех пор, пока длина не совпадёт с ростом <span class="hl" id="out-height-target">— см</span>. Имейте в виду: когда будете пришивать голову, шов заберёт ещё около 1 см — это нормально, учитывайте при замере.</p>
-      <div class="video-block"><div class="video-icon">&#9654;</div><div>Всё показано в видео — <a href="https://rutube.ru/video/private/3f27cc88ba24a2c8edfbe7350c5de222/?p=86_Pn-kHwKnlVivS98sXcg" target="_blank">смотреть</a></div></div>
+      <div class="video-block"><div class="video-icon">&#9654;&#xFE0E;</div><div>Всё показано в видео — <a href="https://rutube.ru/video/private/3f27cc88ba24a2c8edfbe7350c5de222/?p=86_Pn-kHwKnlVivS98sXcg" target="_blank">смотреть</a></div></div>
     </div>
 
     <div class="blue-section">
@@ -1337,14 +1337,14 @@ if (sessionStorage.getItem('mk_auth') === '1') {
 
     <div class="stage-badges">
       <span class="stage-badge-label">Сопровождение этапа</span>
-      <span class="stage-badge badge-video">&#9654; Видеоурок</span>
+      <span class="stage-badge badge-video">&#9654;&#xFE0E; Видеоурок</span>
     </div>
 
     <p>Найдите боковые швы туловища — они станут ориентиром для симметричного расположения ручек. Шов должен приходиться ровно на середину ручки.</p>
     <p>Возьмите капроновую нить с узелком, длиной около 1 метра. Пришейте первую ручку сверху по верхнему краю туловища. Той же нитью переходите ко второй ручке по горловине, слегка стягивая её — но не сильно, голова должна сесть красиво. Прошейте вторую ручку так же сверху. По второму краю горловины вернитесь к первой ручке и закрепите её с другой стороны.</p>
     <p>Теперь возьмите новую нить с узелком. Поднимите лапку и вставьте иголку в подмышку — так спрячется узелок. Выведите иглу на боковом шве ручки сверху. Делайте стежки вниз, чередуя — стежок в тело, стежок в ручку — затягивая нить. Опускайтесь вниз на 3–4 см. Затем введите иглу в тело и выведите её наверх у начала ручки, плотно затяните нить и сделайте узелок. Пройдитесь швом под подмышкой по всей ширине — стежок в ручку, стежок в тело. На другом конце вернитесь в исходное положение ручки и пройдите по боковому шву с другой стороны. Затягивайте нить по мере шитья. Сверху сделайте узелок. Повторите для второй ручки.</p>
     <div class="tip">Этот этап гораздо проще понять на видео — рекомендую посмотреть перед тем как начать.</div>
-    <div class="video-block"><div class="video-icon">&#9654;</div><div>Видео-урок: пришивание ручек — <a href="https://rutube.ru/video/private/52e2defeb16cf638ddfe8df1f89dc4f7/?p=lPsjJGkxUw11appDQX194g" target="_blank">смотреть</a></div></div>
+    <div class="video-block"><div class="video-icon">&#9654;&#xFE0E;</div><div>Видео-урок: пришивание ручек — <a href="https://rutube.ru/video/private/52e2defeb16cf638ddfe8df1f89dc4f7/?p=lPsjJGkxUw11appDQX194g" target="_blank">смотреть</a></div></div>
     <div class="photo-slot"><img src="stage10_ruchki_gotovye.jpg" alt="Готовые пришитые ручки" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
     <p>После этого ещё раз проверьте рост мишки — всё ли совпадает с задуманным.</p>
 
@@ -1362,11 +1362,11 @@ if (sessionStorage.getItem('mk_auth') === '1') {
     </div>
     <div class="stage-badges">
       <span class="stage-badge-label">Сопровождение этапа</span>
-      <span class="stage-badge badge-video">&#9654; Видеоурок</span>
+      <span class="stage-badge badge-video">&#9654;&#xFE0E; Видеоурок</span>
     </div>
 
     <p>Используйте плотную капроновую нить или сложите обычную в 4–6 слоёв. Начинайте с затылка, от центра, и двигайтесь по кругу — очень плотно стягивая голову и туловище между собой. Пройдитесь 2–3 полных круга, периодически закрепляя нить узелками по ходу. Когда голова надёжно зафиксирована — спрячьте нить внутри.</p>
-    <div class="video-block"><div class="video-icon">&#9654;</div><div>Видео-урок: пришивание головы — <a href="https://rutube.ru/video/private/22fae0d48b85611ee40f947947c4acbc/?p=xbb--HW7CQZsdgsPg_STlg" target="_blank">смотреть</a></div></div>
+    <div class="video-block"><div class="video-icon">&#9654;&#xFE0E;</div><div>Видео-урок: пришивание головы — <a href="https://rutube.ru/video/private/22fae0d48b85611ee40f947947c4acbc/?p=xbb--HW7CQZsdgsPg_STlg" target="_blank">смотреть</a></div></div>
     <div class="photo-slot"><img src="stage11_mishka_gotovy.jpg" alt="Готовый мишка" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
 
     <a class="back-to-toc" href="#toc">↑ К содержанию</a>
@@ -1391,13 +1391,13 @@ if (sessionStorage.getItem('mk_auth') === '1') {
             <div class="tagline" style="margin-top:4px;">Ромпер + воротничок — сшитый специально под вашего мишку</div>
           </div>
         </div>
-        <span class="collapsible-toggle">▾</span>
+        <span class="collapsible-toggle">&#9660;&#xFE0E;</span>
       </div>
       <div class="collapsible-body" style="padding-top:16px;">
 
     <div class="stage-badges" style="margin:0 0 12px;">
       <span class="stage-badge-label">Сопровождение этапа</span>
-      <span class="stage-badge badge-video">&#9654; Видеоурок</span>
+      <span class="stage-badge badge-video">&#9654;&#xFE0E; Видеоурок</span>
     </div>
 
     <p>Мишка сшит. Но, может быть, ему чего-то не хватает? Этот бонусный урок — для тех, кто хочет одеть своего малыша в крошечный костюмчик, сшитый специально под него.</p>
@@ -1405,7 +1405,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
     <div class="blue-section">
       <h3>Выкройка одежды</h3>
       <p>Выкройка ромпера и воротничка — в отдельном файле.</p>
-      <a href="https://disk.yandex.ru/i/ROntX3k5ri7q4w" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:white;border:1.5px solid var(--border-b);border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600;color:#2A5A78;text-decoration:none;margin-top:10px;">Скачать выкройку одежды</a>
+      <a href="https://disk.yandex.ru/i/ROntX3k5ri7q4w" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:white;border:1.5px solid var(--border-b);border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600;color:#2A5A78;text-decoration:none;margin-top:10px;">&#8595;&#xFE0E; Скачать выкройку одежды</a>
     </div>
 
     <div class="sub-section">
@@ -1466,7 +1466,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
       <p style="font-style:italic;color:var(--rose);">Вот теперь — он совсем готов. 🤍</p>
     </div>
 
-    <div class="video-block"><div class="video-icon">&#9654;</div><div>Видео-урок: одежда для мишки (ромпер + воротничок) — <a href="https://rutube.ru/video/private/52dcf27c94708df2b118a6e992c32073/?r=wd&p=sc5KVuALHWrELQPm61ieAg" target="_blank">смотреть</a></div></div>
+    <div class="video-block"><div class="video-icon">&#9654;&#xFE0E;</div><div>Видео-урок: одежда для мишки (ромпер + воротничок) — <a href="https://rutube.ru/video/private/52dcf27c94708df2b118a6e992c32073/?r=wd&p=sc5KVuALHWrELQPm61ieAg" target="_blank">смотреть</a></div></div>
 
       </div><!-- /collapsible-body -->
     </div><!-- /collapsible-wrap одежда -->
@@ -1483,7 +1483,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
             <div class="tagline" style="margin-top:4px;">Котик, зайчик, мышка — отличие только в ушках</div>
           </div>
         </div>
-        <span class="collapsible-toggle">▾</span>
+        <span class="collapsible-toggle">&#9660;&#xFE0E;</span>
       </div>
       <div class="collapsible-body" style="padding-top:16px;">
 
@@ -1492,21 +1492,21 @@ if (sessionStorage.getItem('mk_auth') === '1') {
         <div class="blue-section" style="margin-bottom:20px;">
           <h3>Выкройка ушек</h3>
           <p>Выкройка ушек для всех зверушек — в одном файле.</p>
-          <a href="https://disk.yandex.ru/i/w2-2XuoaRt6KdQ" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:white;border:1.5px solid var(--border-b);border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600;color:#2A5A78;text-decoration:none;margin-top:10px;">Скачать выкройку ушек</a>
+          <a href="https://disk.yandex.ru/i/w2-2XuoaRt6KdQ" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:white;border:1.5px solid var(--border-b);border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600;color:#2A5A78;text-decoration:none;margin-top:10px;">&#8595;&#xFE0E; Скачать выкройку ушек</a>
         </div>
 
         <!-- КОТИК -->
-        <div class="collapsible-wrap" style="margin-bottom:16px;border:1px solid var(--border);border-radius:14px;padding:0 16px;">
+        <div class="collapsible-wrap" id="nav-kotik" style="margin-bottom:16px;border:1px solid var(--border);border-radius:14px;padding:0 16px;">
           <div class="collapsible-header" onclick="toggleCollapsible(this)" style="padding:14px 0;">
             <div style="font-size:16px;font-weight:600;color:var(--choco);">Котик</div>
-            <span class="collapsible-toggle" style="margin-top:0;">▾</span>
+            <span class="collapsible-toggle" style="margin-top:0;">&#9660;&#xFE0E;</span>
           </div>
           <div class="collapsible-body">
             <div class="stage-badges" style="margin:0 0 12px;">
               <span class="stage-badge-label">Сопровождение этапа</span>
-              <span class="stage-badge badge-video">&#9654; Видеоурок</span>
+              <span class="stage-badge badge-video">&#9654;&#xFE0E; Видеоурок</span>
             </div>
-            <div class="video-block"><div class="video-icon">&#9654;</div><div>Видео-урок: ушки для котика — <a href="https://rutube.ru/video/private/3c2ed89b904a77c27fcf206c845982fb/?p=4KWvV68u-5eBPakO4yFgHA" target="_blank">смотреть</a></div></div>
+            <div class="video-block"><div class="video-icon">&#9654;&#xFE0E;</div><div>Видео-урок: ушки для котика — <a href="https://rutube.ru/video/private/3c2ed89b904a77c27fcf206c845982fb/?p=4KWvV68u-5eBPakO4yFgHA" target="_blank">смотреть</a></div></div>
 
             <div class="sub-section">
               <h3>Декоративная строчка по краю</h3>
@@ -1534,23 +1534,26 @@ if (sessionStorage.getItem('mk_auth') === '1') {
               <h3>Пришиваем по краю и завершаем</h3>
               <p>Продолжайте пришивать по боковому краю: стежок в голову, стежок в ушко, хорошо подтягивайте нить. Когда дойдёте до центра — переходите к нижней части, слегка подтягивая ушко пальцами к голове. Это помогает окончательно сформировать характерную форму кошачьего ушка.</p>
               <p>Пришейте вторую сторону, вернитесь в исходную точку, сделайте узелок. Спрячьте кончик нити внутри головы. Аналогично пришейте второе ушко.</p>
-              <div class="quote">Котику осталось только вышить носик — и ваш малыш готов. 🤍</div>
+              <div class="quote">Котику осталось только вышить носик — и ваш малыш готов. &#x1F90D;</div>
+              <div style="margin-top:12px;text-align:right;">
+                <a href="javascript:void(0)" onclick="openNext('nav-zaychik')" style="font-size:13px;color:var(--sky);text-decoration:underline;">Перейти к зайчику &#8594;&#xFE0E;</a>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- ЗАЙЧИК -->
-        <div class="collapsible-wrap" style="margin-bottom:16px;border:1px solid var(--border);border-radius:14px;padding:0 16px;">
+        <div class="collapsible-wrap" id="nav-zaychik" style="margin-bottom:16px;border:1px solid var(--border);border-radius:14px;padding:0 16px;">
           <div class="collapsible-header" onclick="toggleCollapsible(this)" style="padding:14px 0;">
             <div style="font-size:16px;font-weight:600;color:var(--choco);">Зайчик</div>
-            <span class="collapsible-toggle" style="margin-top:0;">▾</span>
+            <span class="collapsible-toggle" style="margin-top:0;">&#9660;&#xFE0E;</span>
           </div>
           <div class="collapsible-body">
             <div class="stage-badges" style="margin:0 0 12px;">
               <span class="stage-badge-label">Сопровождение этапа</span>
-              <span class="stage-badge badge-video">&#9654; Видеоурок</span>
+              <span class="stage-badge badge-video">&#9654;&#xFE0E; Видеоурок</span>
             </div>
-            <div class="video-block"><div class="video-icon">&#9654;</div><div>Видео-урок: ушки для зайчика — <a href="https://rutube.ru/video/private/ec00a37be02773889091d0955d3e89cb/?p=gAIXD-hicH3RFmgd2JCaHA" target="_blank">смотреть</a></div></div>
+            <div class="video-block"><div class="video-icon">&#9654;&#xFE0E;</div><div>Видео-урок: ушки для зайчика — <a href="https://rutube.ru/video/private/ec00a37be02773889091d0955d3e89cb/?p=gAIXD-hicH3RFmgd2JCaHA" target="_blank">смотреть</a></div></div>
 
             <div class="sub-section">
               <h3>Декоративная строчка по краю</h3>
@@ -1580,23 +1583,26 @@ if (sessionStorage.getItem('mk_auth') === '1') {
               <h3>Формируем основание и завершаем</h3>
               <p>Спуститесь на 1–1,5 см вниз по одной стороне, закрепите боковую часть, затем перейдите на другую сторону. В итоге ушко держится по периметру небольшим прямоугольником — красиво держит форму.</p>
               <p>Завяжите узелок, спрячьте нить внутри головы. Симметрично пришейте второе ушко.</p>
-              <div class="quote">Ваш зайчик готов. 🤍</div>
+              <div class="quote">Ваш зайчик готов. &#x1F90D;</div>
+              <div style="margin-top:12px;text-align:right;">
+                <a href="javascript:void(0)" onclick="openNext('nav-mishka')" style="font-size:13px;color:var(--sky);text-decoration:underline;">Перейти к мышке &#8594;&#xFE0E;</a>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- МЫШКА -->
-        <div class="collapsible-wrap" style="margin-bottom:8px;border:1px solid var(--border);border-radius:14px;padding:0 16px;">
+        <div class="collapsible-wrap" id="nav-mishka" style="margin-bottom:8px;border:1px solid var(--border);border-radius:14px;padding:0 16px;">
           <div class="collapsible-header" onclick="toggleCollapsible(this)" style="padding:14px 0;">
             <div style="font-size:16px;font-weight:600;color:var(--choco);">Мышка</div>
-            <span class="collapsible-toggle" style="margin-top:0;">▾</span>
+            <span class="collapsible-toggle" style="margin-top:0;">&#9660;&#xFE0E;</span>
           </div>
           <div class="collapsible-body">
             <div class="stage-badges" style="margin:0 0 12px;">
               <span class="stage-badge-label">Сопровождение этапа</span>
-              <span class="stage-badge badge-video">&#9654; Видеоурок</span>
+              <span class="stage-badge badge-video">&#9654;&#xFE0E; Видеоурок</span>
             </div>
-            <div class="video-block"><div class="video-icon">&#9654;</div><div>Видео-урок: ушки для мышки — <a href="https://rutube.ru/video/private/1a03213c1ab897d143d7b1a7929e5060/?p=L55vD88DUEMnIaLyMp8v6g" target="_blank">смотреть</a></div></div>
+            <div class="video-block"><div class="video-icon">&#9654;&#xFE0E;</div><div>Видео-урок: ушки для мышки — <a href="https://rutube.ru/video/private/1a03213c1ab897d143d7b1a7929e5060/?p=L55vD88DUEMnIaLyMp8v6g" target="_blank">смотреть</a></div></div>
 
             <div class="sub-section">
               <h3>Декоративная строчка по краю</h3>
@@ -1624,7 +1630,7 @@ if (sessionStorage.getItem('mk_auth') === '1') {
               <h3>Пришиваем по краю и завершаем</h3>
               <p>Продолжайте по внешнему краю небольшими стежками, хорошо подтягивая нить. Ушко должно слегка накладываться на голову — так выглядит естественно.</p>
               <p>В конце закрепите вторую сторону, вернитесь в точку начала, завяжите узелок, спрячьте нить внутри головы. Пришейте второе ушко.</p>
-              <div class="quote">Мышка готова. 🤍</div>
+              <div class="quote">Мышка готова. &#x1F90D;</div>
             </div>
           </div>
         </div>
@@ -1895,6 +1901,18 @@ function toggleCollapsible(header) {
   header.classList.toggle('open');
   const body = header.nextElementSibling;
   body.classList.toggle('open');
+}
+
+function openNext(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const header = el.querySelector('.collapsible-header');
+  const body = el.querySelector('.collapsible-body');
+  if (!body.classList.contains('open')) {
+    header.classList.add('open');
+    body.classList.add('open');
+  }
+  setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
 }
 
 document.addEventListener('keydown', function(e) {
