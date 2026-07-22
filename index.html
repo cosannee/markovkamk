@@ -595,15 +595,17 @@ function checkPw() {
   if (val === 'mk2026') {
     document.getElementById('pw-gate').style.display = 'none';
     sessionStorage.setItem('mk_auth', '1');
+    localStorage.setItem('mk_auth', '1');
   } else {
     document.getElementById('pw-error').style.display = 'block';
     document.getElementById('pw-input').focus();
   }
 }
-// Если уже вводили пароль в этой сессии — не показываем экран снова
-if (sessionStorage.getItem('mk_auth') === '1') {
+// Если пароль уже вводился (в этой сессии или ранее)
+if (sessionStorage.getItem('mk_auth') === '1' || localStorage.getItem('mk_auth') === '1') {
   document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('pw-gate').style.display = 'none';
+    sessionStorage.setItem('mk_auth', '1');
   });
 }
 </script>
@@ -678,7 +680,10 @@ if (sessionStorage.getItem('mk_auth') === '1') {
         <div style="font-size:13px;color:var(--muted);" id="out-badge-stats">— г · — см</div>
         <div class="size-tag-main" id="out-badge-size">Выкройка —</div>
       </div>
-      <div style="font-size:11px;color:var(--muted);">Гранулят — по весу</div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div style="font-size:11px;color:var(--muted);">Гранулят — по весу</div>
+        <button onclick="editData()" style="font-size:11px;color:var(--muted);background:none;border:1px solid var(--border);border-radius:8px;padding:4px 10px;cursor:pointer;font-family:inherit;">Изменить данные</button>
+      </div>
     </div>
 
     <!-- ═══ КНОПКИ СКАЧИВАНИЯ ═══ -->
@@ -1730,6 +1735,14 @@ function generate() {
   const height  = parseInt(document.getElementById('inp-height').value);
   const birth   = document.getElementById('inp-birth').value;
 
+  // Сохраняем данные в localStorage
+  localStorage.setItem('mk_mom',    momName);
+  localStorage.setItem('mk_name',   document.getElementById('inp-name').value.trim());
+  localStorage.setItem('mk_weight', document.getElementById('inp-weight').value);
+  localStorage.setItem('mk_height', document.getElementById('inp-height').value);
+  localStorage.setItem('mk_birth',  birth);
+  localStorage.setItem('mk_gender', userGender || 'boy');
+
   if (!weight || !height || weight < 500 || height < 30) {
     alert('Пожалуйста, введите вес (в граммах) и рост (в сантиметрах) малыша.');
     return;
@@ -1897,6 +1910,12 @@ function updateProgress() {
   document.getElementById('pb-stage').textContent = 'этап ' + currentStage + ' из ' + stages.length;
 }
 
+function editData() {
+  // Показываем форму снова, прокручиваем наверх
+  document.getElementById('intro').style.display = '';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 function toggleCollapsible(header) {
   header.classList.toggle('open');
   const body = header.nextElementSibling;
@@ -1917,6 +1936,28 @@ function openNext(id) {
 
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Enter' && document.getElementById('intro').style.display !== 'none') generate();
+});
+
+// Автозаполнение формы из localStorage
+document.addEventListener('DOMContentLoaded', function() {
+  const savedMom    = localStorage.getItem('mk_mom');
+  const savedName   = localStorage.getItem('mk_name');
+  const savedWeight = localStorage.getItem('mk_weight');
+  const savedHeight = localStorage.getItem('mk_height');
+  const savedBirth  = localStorage.getItem('mk_birth');
+  const savedGender = localStorage.getItem('mk_gender');
+
+  if (savedName) {
+    if (savedMom)    document.getElementById('inp-mom').value    = savedMom;
+    if (savedName)   document.getElementById('inp-name').value   = savedName;
+    if (savedWeight) document.getElementById('inp-weight').value = savedWeight;
+    if (savedHeight) document.getElementById('inp-height').value = savedHeight;
+    if (savedBirth)  document.getElementById('inp-birth').value  = savedBirth;
+    if (savedGender) {
+      const btn = document.querySelector(`[data-gender="${savedGender}"]`);
+      if (btn) pickGender(btn);
+    }
+  }
 });
 </script>
 </body>
